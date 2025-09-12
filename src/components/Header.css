@@ -3,14 +3,21 @@
   top: 0;
   left: 0;
   right: 0;
-  background: transparent;
+  background: rgba(0,0,0,0); /* 처음엔 투명 */
   border-bottom: none;
   z-index: 1000;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
   width: 100%;
   box-shadow: none;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 스크롤 후 상태 */
+.header.scrolled {
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 .header-container {
@@ -32,6 +39,14 @@
   text-decoration: none;
   color: inherit;
   transform: translateY(-2px);
+}
+
+/* 로고 이미지 */
+.logo-image { 
+  height: 45px; 
+  width: auto; 
+  object-fit: contain; 
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
 
 .logo-icon {
@@ -78,48 +93,21 @@
   font-family: 'Arial', sans-serif;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-}
+/* 네비게이션 */
+.nav { display: flex; align-items: center; gap: 2.5rem; }
 
-.nav-list {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2.5rem;
-}
+.nav-list { display: flex; list-style: none; margin: 0; padding: 0; gap: 2.5rem; }
 
-.nav-list a {
-  text-decoration: none;
-  color: #1C1C1C;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  position: relative;
-  font-size: 1rem;
-}
+/* 기본(투명 헤더)에서는 흰색 텍스트 */
+.header .nav-list a { text-decoration: none; color: rgba(255,255,255,0.92); font-weight: 700; letter-spacing: 0.02em; transition: color 0.2s ease; position: relative; font-size: 1rem; }
+.header .nav-list a:hover { color: #fff; }
 
-.nav-list a:hover {
-  color: #FF4D4D;
-}
+/* 스크롤 후에는 검정 텍스트 */
+.header.scrolled .nav-list a { color: rgba(28,28,28,0.95); }
+.header.scrolled .nav-list a:hover { color: #FF4D4D; }
 
-.nav-list a::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #FF4D4D;
-  transition: width 0.3s ease;
-  border-radius: 1px;
-}
-
-.nav-list a:hover::after {
-  width: 100%;
-}
+.nav-list a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #FF4D4D; transition: width 0.3s ease; border-radius: 1px; }
+.nav-list a:hover::after { width: 100%; }
 
 .mobile-menu-btn {
   display: none;
@@ -134,59 +122,36 @@
 .mobile-menu-btn span {
   width: 25px;
   height: 3px;
-  background: #1C1C1C;
+  background: #fff;
   transition: all 0.3s ease;
   border-radius: 2px;
 }
+
+.header.scrolled .mobile-menu-btn span { background: #1C1C1C; }
 
 .mobile-menu-btn:hover span {
   background: #FF4D4D;
 }
 
 @media (max-width: 768px) {
+  .header {
+    height: 65px;
+  }
+  
   .header-container {
     padding: 0 1rem;
+    height: 65px;
   }
   
-  .nav {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #f0f0f0;
-    flex-direction: column;
-    padding: 2rem;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    gap: 1rem;
-    box-shadow: 0 4px 20px rgba(255, 77, 77, 0.08);
+  .logo-image {
+    height: 40px;
   }
   
-  .nav.nav-open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .nav-list {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  .nav-list a {
-    display: block;
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-  
-  .mobile-menu-btn {
-    display: flex;
-  }
+  .nav { position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f0f0f0; flex-direction: column; padding: 2rem; transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s ease; gap: 1rem; box-shadow: 0 4px 20px rgba(255, 77, 77, 0.08); }
+  .nav.nav-open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .nav-list { flex-direction: column; gap: 1rem; width: 100%; }
+  .nav-list a { display: block; padding: 0.5rem 0; font-size: 1.05rem; color: #1C1C1C; }
+  .mobile-menu-btn { display: flex; }
   
   .mobile-menu-btn.nav-open span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
@@ -198,5 +163,19 @@
   
   .mobile-menu-btn.nav-open span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 60px;
+  }
+  
+  .header-container {
+    height: 60px;
+  }
+  
+  .logo-image {
+    height: 35px;
   }
 } 

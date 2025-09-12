@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import companyImage from '../../images/company_image.png'
 import './Contact.css'
 
 const Contact = () => {
@@ -26,9 +27,17 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
+      <div className="contact-background" style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${companyImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}></div>
+      
       <div className="contact-container">
         <div className="section-header">
-          <h2>문의하기</h2>
+          <div className="contact-badge">문의하기</div>
+          <h2>CONTACT US</h2>
           <p>프로젝트 문의 및 상담을 위해 언제든 연락주세요</p>
         </div>
         

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import WhyUs from './components/WhyUs'
-import About from './components/About'
+import AboutUs from './components/AboutUs'
+import Achievements from './components/Achievements'
 import Services from './components/Services'
 import Clients from './components/Clients'
 import Contact from './components/Contact'
@@ -22,8 +22,8 @@ function App() {
       <Header language={language} onLanguageChange={handleLanguageChange} />
       <main>
         <Hero language={language} />
-        <WhyUs language={language} />
-        <About language={language} />
+        <AboutUs language={language} />
+        <Achievements language={language} />
         <Services language={language} />
         <Clients language={language} />
         <Contact language={language} />

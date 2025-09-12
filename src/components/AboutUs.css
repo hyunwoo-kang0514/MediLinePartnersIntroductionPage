@@ -1,0 +1,243 @@
+.about-company {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../../images/Company_Introduction_Page.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #333;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-company::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 1;
+}
+
+.about-company-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.about-company-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header-subtitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF0000, #FF4444, #FF6666);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+}
+
+.header-subtitle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2rem;
+  width: 1.5rem;
+  height: 3px;
+  background: linear-gradient(90deg, #FF0000, #FF4444);
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+.header-subtitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+  width: 1.5rem;
+  height: 3px;
+  background: linear-gradient(90deg, #FF4444, #FF0000);
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+.about-company-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #333;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.about-company-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.company-section,
+.personnel-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FF0000, #FF4444);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.section-badge:hover::before {
+  left: 100%;
+}
+
+.section-content {
+  flex: 1;
+}
+
+.section-description {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+
+.section-details {
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.8;
+  word-break: keep-all;
+  white-space: pre-line;
+}
+
+.section-details strong {
+  font-weight: 700;
+  color: #333;
+  background: linear-gradient(135deg, #FF0000, #FF4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-details strong:last-child {
+  white-space: nowrap;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .about-company-container {
+    padding: 0 1rem;
+  }
+  
+  .header-subtitle {
+    font-size: 2rem;
+  }
+  
+  .header-subtitle::before,
+  .header-subtitle::after {
+    width: 1rem;
+    left: -1.5rem;
+    right: -1.5rem;
+  }
+  
+  .about-company-title {
+    font-size: 3.5rem;
+  }
+  
+  .about-company-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .section-description {
+    font-size: 1.5rem;
+  }
+  
+  .section-details {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-company {
+    padding: 3rem 0;
+  }
+  
+  .about-company-header {
+    margin-bottom: 3rem;
+  }
+  
+  .header-subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .header-subtitle::before,
+  .header-subtitle::after {
+    width: 0.8rem;
+    left: -1rem;
+    right: -1rem;
+  }
+  
+  .about-company-title {
+    font-size: 2.8rem;
+  }
+  
+  .about-company-content {
+    gap: 2.5rem;
+  }
+  
+  .section-badge {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.6rem;
+  }
+  
+  .section-description {
+    font-size: 1.3rem;
+  }
+  
+  .section-details {
+    font-size: 1.1rem;
+  }
+}

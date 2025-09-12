@@ -1,11 +1,7 @@
 .footer {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
   background: #333;
   color: white;
-  padding: 3rem 0 1rem;
+  padding: 2rem 0;
 }
 
 .footer-container {
@@ -13,101 +9,59 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  min-height: calc(100vh - 6rem);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 2rem;
+  align-items: center;
+  text-align: center;
 }
 
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.footer-logo .logo-squares {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  width: 30px;
-  height: 30px;
+.footer-logo-image {
+  height: 50px;
+  width: auto;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
 
-.footer-logo .square {
-  width: 100%;
-  height: 100%;
+.footer-contact {
+  margin-bottom: 1.5rem;
 }
 
-.footer-logo .logo-text h3 {
-  font-size: 1.2rem;
+.footer-contact p {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.6;
   margin: 0;
-}
-
-.footer-logo .logo-text p {
-  font-size: 0.7rem;
-  margin: 0;
-  opacity: 0.8;
-}
-
-.footer-description {
-  color: #ccc;
-  line-height: 1.6;
-}
-
-.footer-section h4 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.footer-section p {
-  color: #ccc;
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  color: #ccc;
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
 }
 
 .footer-bottom {
   border-top: 1px solid #555;
   padding-top: 1rem;
-  text-align: center;
+  width: 100%;
 }
 
 .footer-bottom p {
   color: #999;
   margin: 0;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
   .footer-container {
     padding: 0 1rem;
-    min-height: calc(100vh - 6rem);
   }
   
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .footer-logo-image {
+    height: 40px;
   }
   
-  .footer-section {
-    text-align: center;
+  .footer-contact p {
+    font-size: 0.8rem;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.7rem;
   }
 } 

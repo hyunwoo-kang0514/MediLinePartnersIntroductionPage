@@ -3,7 +3,10 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 50%, #f5f7fa 100%);
+  background: url('../../images/Company_Collaborated_Image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
@@ -16,11 +19,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 68, 68, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 0, 0, 0.01) 0%, transparent 50%);
-  pointer-events: none;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 1;
 }
 
 /* 배경 이미지들 */
@@ -47,8 +47,9 @@
   right: 5%;
   width: 200px;
   height: 200px;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23FF0000" opacity="0.1"/><circle cx="50" cy="50" r="20" fill="%23FF0000" opacity="0.2"/></svg>');
-  animation: float 6s ease-in-out infinite;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23FF4D4D" opacity="0.08"/><circle cx="50" cy="50" r="20" fill="%23FF6B6B" opacity="0.12"/></svg>');
+  animation: float 8s ease-in-out infinite;
+  filter: blur(0.5px);
 }
 
 .bg-2 {
@@ -56,8 +57,9 @@
   left: 10%;
   width: 150px;
   height: 150px;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="%23FF0000" opacity="0.1"/><rect x="30" y="30" width="40" height="40" fill="%23FF0000" opacity="0.2"/></svg>');
-  animation: float 8s ease-in-out infinite reverse;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="%23FF6B6B" opacity="0.06"/><rect x="30" y="30" width="40" height="40" fill="%23FF7C7C" opacity="0.1"/></svg>');
+  animation: float 10s ease-in-out infinite reverse;
+  filter: blur(0.5px);
 }
 
 .bg-3 {
@@ -65,13 +67,20 @@
   right: 15%;
   width: 100px;
   height: 100px;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="%23FF0000" opacity="0.1"/><polygon points="50,30 70,70 30,70" fill="%23FF0000" opacity="0.2"/></svg>');
-  animation: float 7s ease-in-out infinite;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="%23FF7C7C" opacity="0.05"/><polygon points="50,30 70,70 30,70" fill="%23FF4D4D" opacity="0.08"/></svg>');
+  animation: float 9s ease-in-out infinite;
+  filter: blur(0.5px);
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) scale(1); 
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-25px) rotate(3deg) scale(1.05); 
+    opacity: 1;
+  }
 }
 
 .clients-container {
@@ -88,68 +97,235 @@
 }
 
 .clients-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 4rem;
+  max-width: 100% !important;
+  margin-left: 0;
+  margin-right: auto;
+  width: 100% !important;
 }
 
 .clients-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  color: #2c3e50;
   margin-bottom: 1rem;
+  text-align: left;
+  letter-spacing: -0.01em;
 }
 
+/* 주요고객사 제목 아래 빨간색 줄 제거 */
+
 .clients-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #666;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.clients-subtitle .highlight {
+  color: #FF4D4D;
+  font-weight: 900;
+  background: linear-gradient(135deg, #FF4D4D 0%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .clients-description {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 1.4rem;
+  color: #5a5a5a;
+  max-width: 100%;
+  margin: 0 auto 2rem auto;
   line-height: 1.6;
+  text-align: left;
+  font-weight: 500;
+  white-space: normal !important;
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  display: block !important;
 }
 
-/* 자동 슬라이드 영역 */
-.clients-slider {
+.clients-description.question {
+  font-size: 1.8rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  display: block !important;
+}
+
+.clients-description.answer {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  display: block !important;
+}
+
+/* 마키 효과 영역 */
+.clients-marquee {
   position: relative;
   margin-bottom: 4rem;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
-.slider-container {
+.marquee-container {
   position: relative;
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
+  width: 100vw;
+  overflow: hidden;
 }
 
-.slide-content {
+.marquee-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 3rem;
+  padding: 0;
+  animation: marquee 60s linear infinite;
+  width: max-content;
+}
+
+/* 호버 시 애니메이션 일시정지 */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* 텍스트 하이라이트 스타일 */
+.highlight {
+  color: #FF4D4D;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF4D4D 0%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(255, 77, 77, 0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .marquee-card {
+    width: 250px;
+    height: 300px;
+    padding: 1.5rem;
+  }
+  
+  .marquee-track {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-card {
+    width: 220px;
+    height: 280px;
+    padding: 1.2rem;
+  }
+  
+  .marquee-track {
+    gap: 1.5rem;
+  }
+  
+  .clients-marquee {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+}
+
+/* 마키 애니메이션 */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-card {
   text-align: center;
-  max-width: 500px;
+  width: 280px;
+  height: 320px;
+  background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+  border-radius: 20px;
   padding: 2rem;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* 카드 상단 빨간색 줄 제거 */
+
+.marquee-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .client-logo-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px; /* 200px에서 300px로 확대 */
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  height: 150px; /* 120px에서 150px로 증가 */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8));
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.client-logo-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.marquee-card:hover .client-logo-container::after {
+  opacity: 1;
 }
 
 .client-logo-img {
-  max-width: 300px; /* 200px에서 300px로 확대 */
-  max-height: 250px; /* 150px에서 250px로 확대 */
+  max-width: 150px; /* 100px에서 150px로 증가 */
+  max-height: 120px; /* 80px에서 120px로 증가 */
   object-fit: contain;
   filter: grayscale(0);
   transition: all 0.3s ease;
@@ -161,14 +337,14 @@
 }
 
 .logo-placeholder {
-  width: 300px; /* 150px에서 300px로 확대 */
-  height: 250px; /* 150px에서 250px로 확대 */
+  width: 150px; /* 100px에서 150px로 증가 */
+  height: 120px; /* 80px에서 120px로 증가 */
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem; /* 4rem에서 6rem으로 확대 */
+  font-size: 2.5rem; /* 4rem에서 2.5rem으로 축소 */
   color: #6c757d;
   border: 2px dashed #dee2e6;
   position: relative;
@@ -176,41 +352,70 @@
 
 .logo-placeholder::before {
   content: "🏢";
-  font-size: 5rem; /* 3rem에서 5rem으로 확대 */
+  font-size: 2rem; /* 3rem에서 2rem으로 축소 */
   opacity: 0.7;
 }
 
 .logo-placeholder::after {
   content: "로고";
   position: absolute;
-  bottom: 20px; /* 10px에서 20px로 확대 */
-  font-size: 1.4rem; /* 0.9rem에서 1.4rem으로 확대 */
+  bottom: 10px; /* 15px에서 10px로 축소 */
+  font-size: 0.9rem; /* 1.1rem에서 0.9rem으로 축소 */
   color: #6c757d;
   font-weight: 500;
 }
 
 .client-name {
-  font-size: 3.5rem; /* 2.5rem에서 3.5rem으로 확대 */
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #333;
-  margin-bottom: 1.5rem; /* 1rem에서 1.5rem으로 확대 */
-  line-height: 1.1; /* 1.2에서 1.1로 줄여서 두 줄일 때도 깔끔하게 */
-  white-space: normal; /* nowrap 제거, 자연스러운 줄바꿈 허용 */
-  overflow: visible; /* hidden 제거, 전체 텍스트 표시 */
-  text-overflow: clip; /* ellipsis 제거 */
-  max-width: 1000px; /* 충분한 너비 유지 */
-  text-align: center; /* 중앙 정렬 */
-  word-break: keep-all; /* 한글 단어 단위로 줄바꿈 */
-  margin-left: auto; /* 중앙 정렬을 위한 마진 */
-  margin-right: auto; /* 중앙 정렬을 위한 마진 */
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  max-width: 160px;
+  text-align: center;
+  word-break: keep-all;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.slide-content:hover .client-name {
+  background: linear-gradient(135deg, #FF4D4D 0%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .client-description {
-  font-size: 1.6rem; /* 1.2rem에서 1.6rem으로 확대 */
-  color: #666;
-  line-height: 1.6;
-  max-width: 500px; /* 400px에서 500px로 확대 */
+  font-size: 1rem;
+  color: #5a6c7d;
+  line-height: 1.3;
+  max-width: 180px;
   margin: 0 auto;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.slide-content:hover .client-description {
+  color: #FF6B6B;
+  font-weight: 600;
 }
 
 /* 슬라이더 컨트롤 현대화 */

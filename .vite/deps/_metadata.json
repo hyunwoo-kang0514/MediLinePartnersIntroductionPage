@@ -1,0 +1,34 @@
+{
+  "hash": "f4b98b8c",
+  "configHash": "a2273e8c",
+  "lockfileHash": "e3a50f28",
+  "browserHash": "640d255e",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "4df865ed",
+      "needsInterop": true
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "fc8b8bd8",
+      "needsInterop": false
+    },
+    "react-intersection-observer": {
+      "src": "../../node_modules/react-intersection-observer/dist/index.mjs",
+      "file": "react-intersection-observer.js",
+      "fileHash": "b56bf908",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-4HGDC6YY": {
+      "file": "chunk-4HGDC6YY.js"
+    },
+    "chunk-V4OQ3NZ2": {
+      "file": "chunk-V4OQ3NZ2.js"
+    }
+  }
+}

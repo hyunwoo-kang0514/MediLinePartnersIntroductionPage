@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import companyPicture from '../assets/company_picture.png'
+import firstImageIntroPage from '../../images/first_image_intropage.png'
+import secondImageIntroPage from '../../images/second_image_intropage.png'
+import thirdImageIntroPage from '../../images/third_image_intropage.png'
 import './Hero.css'
 
 const Hero = ({ language }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
   const [activeTab, setActiveTab] = useState(0)
-  const [autoPlay, setAutoPlay] = useState(true)
+  const [progress, setProgress] = useState(0)
+  
+  // Single Source of Truth - State Machine
+  const stateRef = useRef('idle') // idle | running | paused | changing
+  const startTimeRef = useRef(0)
+  const accumulatedPauseRef = useRef(0)
+  const pausedAtRef = useRef(0)
+  const rafIdRef = useRef(null)
+  const currentIndexRef = useRef(0)
+  
+  // Constants
+  const DURATION = 7000 // 7초
+  const TEXT_ANIMATION_DELAY = 1600 // 1.6초
 
   const tabs = [
     { 
       id: 0, 
       number: '01', 
-      title: 'About Us', 
+      title: 'ABOUT US', 
       content: '메디라인파트너스는 20년 연속 업계 1위 CRO 컨설팅 전문 기업입니다.',
       heroTitle: '메디라인파트너스는',
       heroSubtitle: '20년 연속 업계 1위',
-      heroDescription: 'CRO 컨설팅 전문',
-      heroEnd: '기업입니다.',
-      visualType: 'about',
-      isLargeVisual: true
+      heroDescription: 'CRO 컨설팅 전문 기업입니다.'
     },
     { 
       id: 1, 
@@ -32,10 +39,7 @@ const Hero = ({ language }) => {
       content: '전문적인 약물감시 서비스로 안전성 확보',
       heroTitle: '전문적인',
       heroSubtitle: '약물감시 서비스',
-      heroDescription: '안전성 확보를 위한',
-      heroEnd: '체계적인 관리',
-      visualType: 'pv',
-      isLargeVisual: false
+      heroDescription: '안전성 확보를 위한 체계적인 관리'
     },
     { 
       id: 2, 
@@ -44,54 +48,108 @@ const Hero = ({ language }) => {
       content: '체계적인 인허가 컨설팅으로 성공적인 승인',
       heroTitle: '체계적인',
       heroSubtitle: '인허가 컨설팅',
-      heroDescription: '성공적인 승인을 위한',
-      heroEnd: '전문 서비스',
-      visualType: 'ra',
-      isLargeVisual: false
+      heroDescription: '성공적인 승인을 위한 전문 서비스'
     }
   ]
 
-  // 자동 전환 기능
-  useEffect(() => {
-    if (!autoPlay) return
-
-    const interval = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % tabs.length)
-    }, 4000) // 4초마다 전환
-
-    return () => clearInterval(interval)
-  }, [autoPlay, tabs.length])
-
-  // 탭 클릭 시 자동 재생 일시정지
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId)
-    setAutoPlay(false)
+  // Single Source of Truth - State Machine Functions
+  const startSlide = (index) => {
+    console.log(`slideStart(${index})`)
+    currentIndexRef.current = index
+    setActiveTab(index)
     
-    // 10초 후 자동 재생 재개
-    setTimeout(() => setAutoPlay(true), 10000)
+    // 새 슬라이드 시작 시에만 게이지 리셋
+    resetGauge()
+    
+    startTimeRef.current = performance.now()
+    accumulatedPauseRef.current = 0
+    stateRef.current = 'running'
+    tick()
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2
-      }
+  const tick = () => {
+    if (stateRef.current !== 'running') return
+    
+    const now = performance.now()
+    const progress = Math.min(1, (now - startTimeRef.current - accumulatedPauseRef.current) / DURATION)
+    
+    setProgress(progress * 100) // 0-100%로 변환
+    console.log(`progressUpdate(${currentIndexRef.current}, ${progress.toFixed(3)})`)
+    
+    if (progress >= 1) {
+      stateRef.current = 'changing'
+      nextSlide()
+      return
     }
+    
+    rafIdRef.current = requestAnimationFrame(tick)
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
+  const pause = () => {
+    if (stateRef.current !== 'running') return
+    stateRef.current = 'paused'
+    pausedAtRef.current = performance.now()
+    cancelAnimationFrame(rafIdRef.current)
+  }
+
+  const resume = () => {
+    if (stateRef.current !== 'paused') return
+    accumulatedPauseRef.current += performance.now() - pausedAtRef.current
+    stateRef.current = 'running'
+    tick()
+  }
+
+  const nextSlide = () => {
+    const currentIndex = currentIndexRef.current
+    const nextIndex = (currentIndex + 1) % tabs.length
+    console.log(`slideChange(${currentIndex} → ${nextIndex})`)
+    
+    // 이전 슬라이드에서는 게이지 리셋하지 않음 (100% 유지)
+    // DOM 전환 애니메이션 완료 후 새 슬라이드 시작
+    setTimeout(() => {
+      startSlide(nextIndex)
+    }, 100)
+  }
+
+  const resetGauge = () => {
+    setProgress(0)
+  }
+
+  const onUserNav = (targetIndex) => {
+    if (stateRef.current === 'paused') resume()
+    stateRef.current = 'changing'
+    cancelAnimationFrame(rafIdRef.current)
+    resetGauge()
+    startSlide(targetIndex)
+  }
+
+  // 초기화 및 이벤트 리스너
+  useEffect(() => {
+    // 첫 화면 로드 시 슬라이드 시작
+    setTimeout(() => {
+      startSlide(0)
+    }, TEXT_ANIMATION_DELAY)
+
+    // 탭 비가시성 처리
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        pause()
+      } else {
+        resume()
       }
     }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      cancelAnimationFrame(rafIdRef.current)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [])
+
+  // 탭 클릭 시 수동 변경
+  const handleTabClick = (id) => {
+    onUserNav(id)
   }
 
   const getContent = () => {
@@ -126,190 +184,152 @@ const Hero = ({ language }) => {
   const content = getContent()
   const currentTab = tabs[activeTab]
 
-  // About Us 탭의 큰 시각적 요소 렌더링
-  const renderAboutUsLargeVisual = () => {
-    return (
-      <div className="about-large-visual">
-        <div className="large-visual-container">
-          {/* 메인 헥사곤 플랫폼 */}
-          <div className="hexagon-platform">
-            <div className="hexagon-glow"></div>
-            <div className="hexagon-content">
-              <div className="company-icon">
-                <div className="icon-circle">
-                  <div className="icon-symbol">M</div>
-                </div>
-              </div>
-              <div className="achievement-badges">
-                <div className="badge badge-1">
-                  <div className="badge-icon">🏆</div>
-                  <div className="badge-text">1위</div>
-                </div>
-                <div className="badge badge-2">
-                  <div className="badge-icon">⭐</div>
-                  <div className="badge-text">20년</div>
-                </div>
-                <div className="badge badge-3">
-                  <div className="badge-icon">💎</div>
-                  <div className="badge-text">전문</div>
-                </div>
-              </div>
-            </div>
-          </div>
+  // 각 탭별로 다른 이미지 사용
+  const getBackgroundImage = (tabIndex) => {
+    switch(tabIndex) {
+      case 0: return firstImageIntroPage;  // About Us
+      case 1: return secondImageIntroPage; // PV 서비스
+      case 2: return thirdImageIntroPage;  // RA 서비스
+      default: return companyPicture;
+    }
+  }
+  
+  const backgroundImage = getBackgroundImage(activeTab)
 
-          {/* 플로팅 요소들 */}
-          <div className="floating-elements">
-            <div className="floating-card card-1">
-              <div className="card-icon">📊</div>
-              <div className="card-text">성장률</div>
-              <div className="card-value">+150%</div>
-            </div>
-            <div className="floating-card card-2">
-              <div className="card-icon">🤝</div>
-              <div className="card-text">파트너</div>
-              <div className="card-value">500+</div>
-            </div>
-            <div className="floating-card card-3">
-              <div className="card-icon">🌍</div>
-              <div className="card-text">글로벌</div>
-              <div className="card-value">30+</div>
-            </div>
-            <div className="floating-card card-4">
-              <div className="card-icon">✅</div>
-              <div className="card-text">성공률</div>
-              <div className="card-value">98%</div>
-            </div>
-          </div>
-
-          {/* 연결선과 파티클 */}
-          <div className="connection-lines">
-            <div className="line line-1"></div>
-            <div className="line line-2"></div>
-            <div className="line line-3"></div>
-            <div className="line line-4"></div>
-          </div>
-
-          {/* 파티클 효과 */}
-          <div className="particles">
-            <div className="particle particle-1"></div>
-            <div className="particle particle-2"></div>
-            <div className="particle particle-3"></div>
-            <div className="particle particle-4"></div>
-            <div className="particle particle-5"></div>
-            <div className="particle particle-6"></div>
-          </div>
-
-          {/* 배경 그라데이션 원들 */}
-          <div className="background-circles">
-            <div className="bg-circle circle-1"></div>
-            <div className="bg-circle circle-2"></div>
-            <div className="bg-circle circle-3"></div>
-          </div>
-        </div>
-      </div>
-    )
+  // 애니메이션 variants
+  const backgroundVariants = {
+    initial: { scale: 1.05, opacity: 0 },
+    animate: { 
+      scale: 1, 
+      opacity: 1,
+      transition: { 
+        duration: 1.2,
+        ease: "easeOut"
+      }
+    },
+    exit: { 
+      scale: 1.05, 
+      opacity: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeIn"
+      }
+    }
   }
 
-  // 일반 탭의 시각적 요소 렌더링
-  const renderNormalVisual = (type) => {
-    switch(type) {
-      case 'pv':
-        return (
-          <>
-            <div className="visual-element pv-element-1">
-              <div className="element-icon">📚</div>
-              <div className="element-text">약물감시 용어집</div>
-            </div>
-            <div className="visual-element pv-element-2">
-              <div className="element-icon">📋</div>
-              <div className="element-text">데이터 모니터링</div>
-            </div>
-            <div className="visual-element pv-element-3">
-              <div className="element-icon">🛡️</div>
-              <div className="element-text">안전성 보호</div>
-            </div>
-            <div className="central-figure pv-figure">
-              <div className="figure-icon">💊</div>
-            </div>
-          </>
-        )
-      case 'ra':
-        return (
-          <>
-            <div className="visual-element ra-element-1">
-              <div className="element-icon">📖</div>
-              <div className="element-text">규정 가이드</div>
-            </div>
-            <div className="visual-element ra-element-2">
-              <div className="element-icon">✅</div>
-              <div className="element-text">승인 프로세스</div>
-            </div>
-            <div className="visual-element ra-element-3">
-              <div className="element-icon">⚖️</div>
-              <div className="element-text">규정 준수</div>
-            </div>
-            <div className="central-figure ra-figure">
-              <div className="figure-icon">📜</div>
-            </div>
-          </>
-        )
-      default:
-        return null
+  const titleVariants = {
+    initial: { opacity: 0, y: 40 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 1.0,
+        delay: 0.4,
+        ease: "easeOut"
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -40,
+      transition: { 
+        duration: 0.6,
+        ease: "easeIn"
+      }
+    }
+  }
+
+  const descriptionVariants = {
+    initial: { opacity: 0, y: 30 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        delay: 0.8,
+        ease: "easeOut"
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -30,
+      transition: { 
+        duration: 0.5,
+        ease: "easeIn"
+      }
     }
   }
 
   return (
-    <section className="hero" ref={ref}>
+    <section className="hero" id="home">
+      {/* 배경 이미지들을 겹쳐서 배치 */}
+      <div className="hero-backgrounds">
+        {tabs.map((tab, index) => {
+          const image = getBackgroundImage(index)
+          return (
+            <motion.div
+              key={index}
+              className={`hero-background ${index === activeTab ? 'active' : ''}`}
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ 
+                opacity: index === activeTab ? 1 : 0,
+                scale: 1,
+                transition: { 
+                  duration: 1.2,
+                  ease: "easeOut"
+                }
+              }}
+              exit={{ 
+                opacity: 0,
+                scale: 1.05,
+                transition: { 
+                  duration: 0.8,
+                  ease: "easeIn"
+                }
+              }}
+            />
+          )
+        })}
+      </div>
+      
       <div className="hero-container">
-        <motion.div 
-          className="hero-main"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          <motion.div className="hero-content" variants={itemVariants}>
+        <AnimatePresence mode="wait">
+          <motion.div 
+            className="hero-content"
+            key={activeTab}
+            variants={titleVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
             <motion.h1 
               className="hero-title"
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1.0, delay: 0.4 }}
             >
               {currentTab.heroTitle}<br />
-              <span className={`highlight ${currentTab.isLargeVisual ? 'large-highlight' : ''}`}>
-                {currentTab.heroSubtitle}
-              </span><br />
-              <span className={`highlight ${currentTab.isLargeVisual ? 'large-highlight' : ''}`}>
-                {currentTab.heroDescription}
-              </span><br />
-              {currentTab.heroEnd}
+              <span className="highlight">{currentTab.heroSubtitle}</span><br />
+              {currentTab.heroDescription}
             </motion.h1>
-            <p className="hero-subtitle">{content.description}</p>
-            <div className="hero-buttons">
-              <a href="#about" className="btn btn-primary">{content.button1}</a>
-              <a href="#contact" className="btn btn-secondary">{content.button2}</a>
-            </div>
+            
+            <motion.p 
+              className="hero-lead"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              고객의 성공을 돕는 전략적 파트너로서 인허가 전주기 One Stop 통합 서비스를 지원합니다
+            </motion.p>
           </motion.div>
+        </AnimatePresence>
 
-          <motion.div className="hero-image" variants={itemVariants}>
-            <div className="hero-visual">
-              <div className={`visual-container ${currentTab.isLargeVisual ? 'large-container' : ''}`}>
-                <motion.div 
-                  className="data-visualization"
-                  key={activeTab}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {currentTab.isLargeVisual ? renderAboutUsLargeVisual() : renderNormalVisual(currentTab.visualType)}
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* 탭 네비게이션 */}
-        <motion.div className="hero-tabs" variants={itemVariants}>
+        <div className="hero-tabs">
           <div className="tabs-container">
             {tabs.map((tab) => (
               <button
@@ -320,31 +340,25 @@ const Hero = ({ language }) => {
                 <span className="tab-number">{tab.number}</span>
                 <span className="tab-title">{tab.title}</span>
                 {activeTab === tab.id && (
-                  <motion.div
-                    className="tab-underline"
-                    layoutId="underline"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
+                  <div className="tab-underline">
+                    <div 
+                      className="tab-progress-fill"
+                      style={{ 
+                        width: `${progress}%`,
+                        opacity: progress > 0 ? 1 : 0,
+                        transition: 'opacity 0.2s ease'
+                      }}
+                    ></div>
+                  </div>
                 )}
               </button>
             ))}
           </div>
           
-          {/* 탭 콘텐츠 */}
-          <motion.div 
-            className="tab-content"
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p>{currentTab.content}</p>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
 
-export default Hero 
+export default Hero

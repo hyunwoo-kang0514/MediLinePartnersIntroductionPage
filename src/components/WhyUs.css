@@ -51,6 +51,7 @@
   margin-bottom: 1rem;
   color: #333;
   line-height: 1.2;
+  word-break: keep-all;
 }
 
 .whyus-subtitle {
@@ -58,6 +59,7 @@
   color: #666;
   margin-bottom: 2rem;
   font-weight: 600;
+  word-break: keep-all;
 }
 
 .whyus-description {
@@ -66,6 +68,7 @@
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
+  word-break: keep-all;
 }
 
 .whyus-features {
@@ -121,12 +124,14 @@
   color: #333;
   margin-bottom: 1rem;
   font-weight: 600;
+  word-break: keep-all;
 }
 
 .feature-card p {
   color: #666;
   line-height: 1.6;
   font-size: 1rem;
+  word-break: keep-all;
 }
 
 .whyus-cta {
