@@ -41,42 +41,48 @@ const Services = ({ language }) => {
           title: "Services",
           subtitle: "Professional services for pharmaceutical and medical device licensing and pharmacovigilance",
           tabs: [
-            { id: 'ra', label: 'RA 인허가' },
-            { id: 'pv', label: 'PV 약물감시' },
-            { id: 'icc', label: 'ICC 국내대리인' }
+            { id: 'ra', label: 'RA Licensing' },
+            { id: 'pv', label: 'PV Pharmacovigilance' },
+            { id: 'icc', label: 'ICC Domestic Agent' }
           ],
           services: {
             ra: [
               {
-                title: "1. In-Country Caretaker",
+                title: "1. RA Consulting",
                 items: [
-                  "외국 제조사 국내 품목허가 대리인(License holder)"
+                  "Pharmaceutical/Medical Device Licensing Strategy Consulting",
+                  "Pharmaceutical/Medical Device GAP Analysis",
+                  "Pharmaceutical/Medical Device Feasibility and Market Research Consulting",
+                  "MFDS Pre-consultation Support Consulting",
+                  "Domestic Regulatory Intelligence Consulting for International Clients"
                 ]
               },
               {
-                title: "2. 품목허가 및 보험등재",
+                title: "2. RA Writing",
                 items: [
-                  "의약품, 의료기기 수입품목 허가/인증. 신고/변경",
-                  "KGMP 인증",
-                  "의약품 보험/약가등재",
-                  "의료기기 신의료기술평가(HIRA)"
+                  "Common Technical Document (CTD) Development",
+                  "Summary Technical Documentation (STED) Development",
+                  "Investigator's Brochure (IB) Development",
+                  "Clinical and Licensing Submission Package Writing for Pharmaceuticals/Medical Devices"
                 ]
               },
               {
-                title: "3. 수입/통관",
+                title: "3. RA Submission",
                 items: [
-                  "주문접수/발주",
-                  "통관예정보고/ 진행",
-                  "입출고 검사/기록",
-                  "국내 품질 관리",
-                  "창고 임대 및 재고 관리"
+                  "Drug Master File (DMF) Registration",
+                  "Investigational New Drug (IND) Application for Pharmaceuticals/Medical Devices",
+                  "Pre-IND, Pre-NDA Review for Pharmaceuticals/Medical Devices",
+                  "New Drug Application (NDA) for Pharmaceuticals/Medical Devices",
+                  "Product License Renewal",
+                  "New Medical Technology Assessment (HIRA)",
+                  "Development Stage/Rare Disease Drug Designation"
                 ]
               },
               {
-                title: "4. 개별이상사례보고",
+                title: "4. GMP Compliance Certification",
                 items: [
-                  "국내 이상사례 신속보고/정기보고",
-                  "해외 중대한 약물이상반응 신속보고"
+                  "Pharmaceutical/Medical Device GMP (KGMP, ISO13485)",
+                  "Domestic and International GMP Audit Support"
                 ]
               }
             ],
@@ -84,80 +90,74 @@ const Services = ({ language }) => {
               {
                 title: "1. PV System Set-up",
                 items: [
-                  "PV 시스템 구축",
-                  "PV SOP 개발",
-                  "PV 교육",
+                  "PV System Establishment",
+                  "PV SOP Development",
+                  "PV Education",
                   "PV Consulting",
-                  "PV Audit 및 Inspection 대응"
+                  "PV Audit and Inspection Response"
                 ]
               },
               {
                 title: "2. PV Writing",
                 items: [
-                  "최신 안전성정보 보고서(DSUR)",
-                  "위해성관리계획(RMP) 및 이행결과보고서",
-                  "최신 안전성 정보 보고서 (PSUR)",
-                  "정기적인 유익성-위해성 평가 보고서(PBRER)",
-                  "품목갱신을 위한 안전성 보고서"
+                  "Development Safety Update Report (DSUR)",
+                  "Risk Management Plan (RMP) and Implementation Result Report",
+                  "Periodic Safety Update Report (PSUR)",
+                  "Periodic Benefit-Risk Evaluation Report (PBRER)",
+                  "Safety Report for Product Renewal"
                 ]
               },
               {
-                title: "3. 안전성 정보 처리, 관리",
+                title: "3. Safety Information Processing and Management",
                 items: [
-                  "개별안전성정보보고서(ICSR)처리 (출처별, 발생 국가별)",
-                  "국내 이상사례 신속보고/정기보고",
-                  "해외 중대한 약물이상반응",
-                  "SUSAR 신속보고",
-                  "Safety DB Set up, 보관 관리",
-                  "SMP/PVA, 검토, 쿼리 평가",
-                  "실마리 정보 관리"
+                  "Individual Case Safety Report (ICSR) Processing (by source, by country)",
+                  "Domestic Adverse Event Expedited/Periodic Reporting",
+                  "Foreign Serious Adverse Drug Reactions",
+                  "SUSAR Expedited Reporting",
+                  "Safety DB Setup and Storage Management",
+                  "SMP/PVA Review and Query Evaluation",
+                  "Signal Information Management"
                 ]
               },
               {
-                title: "4. 안전성 정보 수집",
+                title: "4. Safety Information Collection",
                 items: [
-                  "주기적 문헌검색",
-                  "규제기관 사이트"
+                  "Periodic Literature Search",
+                  "Regulatory Authority Websites"
                 ]
               }
             ],
             icc: [
               {
-                title: "1. RA Consulting",
+                title: "1. In-Country Caretaker",
                 items: [
-                  "의약품/의료기기 인허가 전략 컨설팅",
-                  "의약품/의료기기 GAP 분석",
-                  "의약품/의료기기 타당성, 시장 조사 컨설팅",
-                  "식약처 사전 상담 지원 컨설팅",
-                  "해외 고객을 위한 국내 Regulatory Intelligence 컨설팅"
+                  "Foreign Manufacturer Domestic Product License Holder"
                 ]
               },
               {
-                title: "2. RA Writing",
+                title: "2. Product License and Insurance Registration",
                 items: [
-                  "의약품국제공통기술문서(CTD) 개발",
-                  "의료기기국제표준화기술문서(STED) 개발",
-                  "임상시험자자료집(IB) 개발",
-                  "의약품/의료기기 임상 및 허가 제출 패키지 작성"
+                  "Pharmaceutical and Medical Device Import Product License/Certification, Notification/Changes",
+                  "KGMP Certification",
+                  "Pharmaceutical Insurance/Drug Price Registration",
+                  "Medical Device New Medical Technology Assessment (HIRA)"
                 ]
               },
               {
-                title: "3. RA Submission",
+                title: "3. Import/Customs Clearance",
                 items: [
-                  "원료의약품 등록(DMF)",
-                  "의약품/의료기기 임상시험계획승인(IND)",
-                  "의약품/의료기기 사전검토(Pre-IND, Pre-NDA)",
-                  "의약품/의료기기 품목허가/신고(NDA)",
-                  "의약품/의료기기 품목갱신",
-                  "신의료기술평가(HIRA)",
-                  "개발단계/희귀의약품 지정"
+                  "Order Reception/Purchase Orders",
+                  "Customs Clearance Pre-reporting/Progress",
+                  "Import/Export Inspection/Records",
+                  "Domestic Quality Management",
+                  "Warehouse Rental and Inventory Management"
                 ]
               },
               {
-                title: "4. GMP 적합인증",
+                title: "4. Individual Case Safety Reporting",
                 items: [
-                  "의약품/의료기기 GMP(KGMP, ISO13485)",
-                  "국내외 GMP 실사지원"
+                  "Domestic Adverse Event Expedited/Periodic Reporting",
+                  "Foreign Serious Adverse Drug Reaction Expedited Reporting"
                 ]
               }
             ]
@@ -168,123 +168,123 @@ const Services = ({ language }) => {
           title: "服务",
           subtitle: "药品和医疗器械许可及药物警戒专业服务",
           tabs: [
-            { id: 'ra', label: 'RA 인허가' },
-            { id: 'pv', label: 'PV 약물감시' },
-            { id: 'icc', label: 'ICC 국내대리인' }
+            { id: 'ra', label: 'RA许可' },
+            { id: 'pv', label: 'PV药物警戒' },
+            { id: 'icc', label: 'ICC国内代理' }
           ],
           services: {
             ra: [
               {
-                title: "1. In-Country Caretaker",
+                title: "1. RA 咨询",
                 items: [
-                  "외국 제조사 국내 품목허가 대리인(License holder)"
+                  "药品/医疗器械许可战略咨询",
+                  "药品/医疗器械GAP分析",
+                  "药品/医疗器械可行性与市场调研咨询",
+                  "MFDS事前咨询支持",
+                  "面向海外客户的韩国法规情报咨询"
                 ]
               },
               {
-                title: "2. 품목허가 및 보험등재",
+                title: "2. RA 文档撰写",
                 items: [
-                  "의약품, 의료기기 수입품목 허가/인증. 신고/변경",
-                  "KGMP 인증",
-                  "의약품 보험/약가등재",
-                  "의료기기 신의료기술평가(HIRA)"
+                  "CTD（共同技术文件）开发",
+                  "STED（医疗器械汇总技术文档）开发",
+                  "研究者手册（IB）编写",
+                  "药品/医疗器械临床与许可提交资料撰写"
                 ]
               },
               {
-                title: "3. 수입/통관",
+                title: "3. RA 申报",
                 items: [
-                  "주문접수/발주",
-                  "통관예정보고/ 진행",
-                  "입출고 검사/기록",
-                  "국내 품질 관리",
-                  "창고 임대 및 재고 관리"
+                  "DMF（药品主文件）登记",
+                  "药品/医疗器械IND申请",
+                  "预IND、预NDA事前审查",
+                  "药品/医疗器械NDA/申报",
+                  "品种续展",
+                  "新医疗技术评价（HIRA）",
+                  "开发阶段/罕见病用药指定"
                 ]
               },
               {
-                title: "4. 개별이상사례보고",
+                title: "4. GMP 合规认证",
                 items: [
-                  "국내 이상사례 신속보고/정기보고",
-                  "해외 중대한 약물이상반응 신속보고"
+                  "药品/医疗器械GMP（KGMP, ISO13485）",
+                  "国内外GMP现场审查支持"
                 ]
               }
             ],
             pv: [
               {
-                title: "1. PV System Set-up",
+                title: "1. PV 系统建立",
                 items: [
-                  "PV 시스템 구축",
-                  "PV SOP 개발",
-                  "PV 교육",
-                  "PV Consulting",
-                  "PV Audit 및 Inspection 대응"
+                  "PV系统构建",
+                  "PV SOP制定",
+                  "PV培训",
+                  "PV咨询",
+                  "PV审计及检查应对"
                 ]
               },
               {
-                title: "2. PV Writing",
+                title: "2. PV 文档撰写",
                 items: [
-                  "최신 안전성정보 보고서(DSUR)",
-                  "위해성관리계획(RMP) 및 이행결과보고서",
-                  "최신 안전성 정보 보고서 (PSUR)",
-                  "정기적인 유익성-위해성 평가 보고서(PBRER)",
-                  "품목갱신을 위한 안전성 보고서"
+                  "开发安全性更新报告（DSUR）",
+                  "风险管理计划（RMP）及执行结果报告",
+                  "定期安全性更新报告（PSUR）",
+                  "定期效益-风险评估报告（PBRER）",
+                  "品种续展用安全性报告"
                 ]
               },
               {
-                title: "3. 안전성 정보 처리, 관리",
+                title: "3. 安全性信息处理与管理",
                 items: [
-                  "개별안전성정보보고서(ICSR)처리 (출처별, 발생 국가별)",
-                  "국내 이상사례 신속보고/정기보고",
-                  "해외 중대한 약물이상반응",
-                  "SUSAR 신속보고",
-                  "Safety DB Set up, 보관 관리",
-                  "SMP/PVA, 검토, 쿼리 평가",
-                  "실마리 정보 관리"
+                  "个例安全性报告（ICSR）处理（按来源/发生国家）",
+                  "国内不良事件速报/定期报告",
+                  "海外严重不良反应",
+                  "SUSAR速报",
+                  "安全数据库建立与维护",
+                  "SMP/PVA审查与质询处理",
+                  "信号信息管理"
                 ]
               },
               {
-                title: "4. 안전성 정보 수집",
+                title: "4. 安全性信息收集",
                 items: [
-                  "주기적 문헌검색",
-                  "규제기관 사이트"
+                  "定期文献检索",
+                  "监管机构网站监测"
                 ]
               }
             ],
             icc: [
               {
-                title: "1. RA Consulting",
+                title: "1. 国内代理（In-Country Caretaker）",
                 items: [
-                  "의약품/의료기기 인허가 전략 컨설팅",
-                  "의약품/의료기기 GAP 분석",
-                  "의약품/의료기기 타당성, 시장 조사 컨설팅",
-                  "식약처 사전 상담 지원 컨설팅",
-                  "해외 고객을 위한 국내 Regulatory Intelligence 컨설팅"
+                  "外国制造商国内品种许可持有人（License holder）"
                 ]
               },
               {
-                title: "2. RA Writing",
+                title: "2. 品种许可及医保/定价登记",
                 items: [
-                  "의약품국제공통기술문서(CTD) 개발",
-                  "의료기기국제표준화기술문서(STED) 개발",
-                  "임상시험자자료집(IB) 개발",
-                  "의약품/의료기기 임상 및 허가 제출 패키지 작성"
+                  "药品、医疗器械进口品种 许可/认证、申报/变更",
+                  "KGMP认证",
+                  "药品保险/定价登记",
+                  "医疗器械新医疗技术评价（HIRA）"
                 ]
               },
               {
-                title: "3. RA Submission",
+                title: "3. 进口/通关",
                 items: [
-                  "원료의약품 등록(DMF)",
-                  "의약품/의료기기 임상시험계획승인(IND)",
-                  "의약품/의료기기 사전검토(Pre-IND, Pre-NDA)",
-                  "의약품/의료기기 품목허가/신고(NDA)",
-                  "의약품/의료기기 품목갱신",
-                  "신의료기술평가(HIRA)",
-                  "개발단계/희귀의약품 지정"
+                  "订单接收/采购",
+                  "报关预申报/进度管理",
+                  "出入库检验/记录",
+                  "国内质量管理",
+                  "仓储租赁及库存管理"
                 ]
               },
               {
-                title: "4. GMP 적합인증",
+                title: "4. 个例不良事件报告",
                 items: [
-                  "의약품/의료기기 GMP(KGMP, ISO13485)",
-                  "국내외 GMP 실사지원"
+                  "国内不良事件速报/定期报告",
+                  "海外严重不良反应速报"
                 ]
               }
             ]
@@ -302,35 +302,41 @@ const Services = ({ language }) => {
           services: {
             ra: [
               {
-                title: "1. In-Country Caretaker",
+                title: "1. RA Consulting",
                 items: [
-                  "외국 제조사 국내 품목허가 대리인(License holder)"
+                  "의약품/의료기기 인허가 전략 컨설팅",
+                  "의약품/의료기기 GAP 분석",
+                  "의약품/의료기기 타당성, 시장 조사 컨설팅",
+                  "식약처 사전 상담 지원 컨설팅",
+                  "해외 고객을 위한 국내 Regulatory Intelligence 컨설팅"
                 ]
               },
               {
-                title: "2. 품목허가 및 보험등재",
+                title: "2. RA Writing",
                 items: [
-                  "의약품, 의료기기 수입품목 허가/인증. 신고/변경",
-                  "KGMP 인증",
-                  "의약품 보험/약가등재",
-                  "의료기기 신의료기술평가(HIRA)"
+                  "의약품국제공통기술문서(CTD) 개발",
+                  "의료기기국제표준화기술문서(STED) 개발",
+                  "임상시험자자료집(IB) 개발",
+                  "의약품/의료기기 임상 및 허가 제출 패키지 작성"
                 ]
               },
               {
-                title: "3. 수입/통관",
+                title: "3. RA Submission",
                 items: [
-                  "주문접수/발주",
-                  "통관예정보고/ 진행",
-                  "입출고 검사/기록",
-                  "국내 품질 관리",
-                  "창고 임대 및 재고 관리"
+                  "원료의약품 등록(DMF)",
+                  "의약품/의료기기 임상시험계획승인(IND)",
+                  "의약품/의료기기 사전검토(Pre-IND, Pre-NDA)",
+                  "의약품/의료기기 품목허가/신고(NDA)",
+                  "의약품/의료기기 품목갱신",
+                  "신의료기술평가(HIRA)",
+                  "개발단계/희귀의약품 지정"
                 ]
               },
               {
-                title: "4. 개별이상사례보고",
+                title: "4. GMP 적합인증",
                 items: [
-                  "국내 이상사례 신속보고/정기보고",
-                  "해외 중대한 약물이상반응 신속보고"
+                  "의약품/의료기기 GMP(KGMP, ISO13485)",
+                  "국내외 GMP 실사지원"
                 ]
               }
             ],
@@ -377,41 +383,35 @@ const Services = ({ language }) => {
             ],
             icc: [
               {
-                title: "1. RA Consulting",
+                title: "1. In-Country Caretaker",
                 items: [
-                  "의약품/의료기기 인허가 전략 컨설팅",
-                  "의약품/의료기기 GAP 분석",
-                  "의약품/의료기기 타당성, 시장 조사 컨설팅",
-                  "식약처 사전 상담 지원 컨설팅",
-                  "해외 고객을 위한 국내 Regulatory Intelligence 컨설팅"
+                  "외국 제조사 국내 품목허가 대리인(License holder)"
                 ]
               },
               {
-                title: "2. RA Writing",
+                title: "2. 품목허가 및 보험등재",
                 items: [
-                  "의약품국제공통기술문서(CTD) 개발",
-                  "의료기기국제표준화기술문서(STED) 개발",
-                  "임상시험자자료집(IB) 개발",
-                  "의약품/의료기기 임상 및 허가 제출 패키지 작성"
+                  "의약품, 의료기기 수입품목 허가/인증. 신고/변경",
+                  "KGMP 인증",
+                  "의약품 보험/약가등재",
+                  "의료기기 신의료기술평가(HIRA)"
                 ]
               },
               {
-                title: "3. RA Submission",
+                title: "3. 수입/통관",
                 items: [
-                  "원료의약품 등록(DMF)",
-                  "의약품/의료기기 임상시험계획승인(IND)",
-                  "의약품/의료기기 사전검토(Pre-IND, Pre-NDA)",
-                  "의약품/의료기기 품목허가/신고(NDA)",
-                  "의약품/의료기기 품목갱신",
-                  "신의료기술평가(HIRA)",
-                  "개발단계/희귀의약품 지정"
+                  "주문접수/발주",
+                  "통관예정보고/ 진행",
+                  "입출고 검사/기록",
+                  "국내 품질 관리",
+                  "창고 임대 및 재고 관리"
                 ]
               },
               {
-                title: "4. GMP 적합인증",
+                title: "4. 개별이상사례보고",
                 items: [
-                  "의약품/의료기기 GMP(KGMP, ISO13485)",
-                  "국내외 GMP 실사지원"
+                  "국내 이상사례 신속보고/정기보고",
+                  "해외 중대한 약물이상반응 신속보고"
                 ]
               }
             ]

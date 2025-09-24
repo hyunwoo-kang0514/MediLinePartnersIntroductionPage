@@ -10,9 +10,9 @@ import abbvieLogo from '/abbvie.png'
 import illyLogo from '/illy.png'
 import modenaLogo from '/modena.png'
 import astraZenekaLogo from '/AstraZeneka.png'
-import samsungBioepisLogo from '/Samsung Bioepis.png'
-import daewoongLogo from '/Daewoong Pharmaceutical.png'
-import pharmAbcineLogo from '/PharmAbcine.png'
+// import samsungBioepisLogo from '/Samsung Bioepis.png'
+// import daewoongLogo from '/Daewoong Pharmaceutical.png'
+// import pharmAbcineLogo from '/PharmAbcine.png'
 import novMetapharmaLogo from '/NOV Metapharma.png'
 import hanmiLogo from '/Hanmi Pharm.png'
 import ipsenLogo from '/Ipsen.png'
@@ -68,19 +68,16 @@ const Clients = ({ language }) => {
     { name: "Eli Lilly", logo: illyLogo, description: "당뇨병 치료제 선도" },
     { name: "Moderna", logo: modenaLogo, description: "메신저 RNA 치료제" },
     { name: "AstraZeneca", logo: astraZenekaLogo, description: "혁신적인 의약품 개발" },
-    { name: "Samsung Bioepis", logo: samsungBioepisLogo, description: "바이오시밀러 전문" },
-    { name: "대웅제약", logo: daewoongLogo, description: "한국 제약 혁신" },
-    { name: "PharmAbcine", logo: pharmAbcineLogo, description: "항체 치료제 전문" },
     { name: "NOV Metapharma", logo: novMetapharmaLogo, description: "대사질환 치료" },
-    { name: "한미약품", logo: hanmiLogo, description: "한국 제약 우수성" },
+    { name: "한미약품", englishName: "Hanmi Pharm", logo: hanmiLogo, description: "한국 제약 우수성" },
     { name: "Ipsen", logo: ipsenLogo, description: "전문 치료제 개발" },
     { name: "Baxter", logo: baxterLogo, description: "의료기기 솔루션" },
     { name: "CSL Behring", logo: cslBehringLogo, description: "바이오테크 솔루션" },
     { name: "Allerpha International", logo: allerphaLogo, description: "국제 헬스케어" },
     { name: "Abbott", logo: abbottLogo, description: "글로벌 헬스케어 솔루션" },
     { name: "Innovo Therapeutics", logo: innovoLogo, description: "혁신 치료제 개발" },
-    { name: "CMG제약", logo: cmgLogo, description: "혁신 의약품 개발" },
-    { name: "한국파마", logo: koreaPharmaLogo, description: "한국 제약 솔루션" },
+    { name: "CMG제약", englishName: "CMG Pharm", logo: cmgLogo, description: "혁신 의약품 개발" },
+    { name: "한국파마", englishName: "Korea Pharma", logo: koreaPharmaLogo, description: "한국 제약 솔루션" },
     { name: "Penumbra", logo: penumbraLogo, description: "의료기기 솔루션" },
     { name: "MicroPort", logo: microPortLogo, description: "의료기기 혁신" },
     { name: "ExoStemTech", logo: exoStemTechLogo, description: "엑소좀 줄기세포 기술" },
@@ -94,28 +91,61 @@ const Clients = ({ language }) => {
 
   const getContent = () => {
     switch (language) {
-      case 'en':
+      case 'eng':
         return {
-          title: "Why Choose Us",
-          subtitle: "Global pharmaceutical and biotech companies trust MediLine Partners",
-          description: "Clinical success partner, why MediLine Partners?",
-          subDescription: "Expertise aligned with global standards, numerous success cases, and 20 years of accumulated know-how create a definitive difference."
+          title: "Clients",
+          subtitle: "Our Clients & Collaborators",
+          description: "Global partners trust MediLine Partners",
+          subDescription: "With expertise aligned to global standards, numerous success stories, and 20 years of accumulated know-how, we create a definitive difference."
         }
-      case 'ja':
+      case 'chn':
         return {
-          title: "選ばれる理由",
-          subtitle: "世界の製薬・バイオ企業がメディライン・パートナーズを信頼",
-          description: "臨床成功のパートナー、なぜメディライン・パートナーズ？",
-          subDescription: "グローバルスタンダードに適合した専門性、数多くの成功事例、20年間蓄積されたノウハウが確実な違いを生み出します。"
+          title: "客户",
+          subtitle: "Our Clients & Collaborators",
+          description: "全球合作伙伴信赖MediLine Partners",
+          subDescription: "符合全球标准的专业性、众多成功案例以及20年积累的经验，创造显著差异。"
         }
       default: // kor
         return {
-          title: "이유 있는 선택",
-          subtitle: "세계적인 제약사와 바이오 기업들이 메디라인파트너스를 신뢰합니다",
-          description: "임상 성공의 파트너, 왜 메디라인파트너스일까요?",
+          title: "고객사",
+          subtitle: "Our Clients & Collaborators",
+          description: "글로벌 파트너사가 메디라인파트너스를 신뢰합니다",
           subDescription: "글로벌 스탠더드에 맞춘 전문성, 수많은 성공 사례, 20년간 축적된 노하우로 확실한 차이를 만듭니다."
         }
     }
+  }
+
+  const translateDescription = (korDesc, lang) => {
+    const map = {
+      "백신 및 의약품 개발": { eng: "Vaccines and pharmaceuticals", chn: "疫苗与药品研发" },
+      "암 치료제 전문": { eng: "Oncology specialist", chn: "肿瘤治疗专家" },
+      "바이오제약 혁신": { eng: "Biopharma innovation", chn: "生物制药创新" },
+      "당뇨병 치료제 선도": { eng: "Leader in diabetes therapeutics", chn: "糖尿病治疗领先" },
+      "메신저 RNA 치료제": { eng: "mRNA therapeutics", chn: "mRNA治疗" },
+      "혁신적인 의약품 개발": { eng: "Innovative pharmaceuticals development", chn: "创新药物开发" },
+      "대사질환 치료": { eng: "Metabolic disease therapeutics", chn: "代谢性疾病治疗" },
+      "한국 제약 우수성": { eng: "Excellence in Korean pharma", chn: "韩国制药优势" },
+      "전문 치료제 개발": { eng: "Specialty therapeutics development", chn: "专业治疗药物开发" },
+      "의료기기 솔루션": { eng: "Medical device solutions", chn: "医疗器械解决方案" },
+      "바이오테크 솔루션": { eng: "Biotech solutions", chn: "生物科技解决方案" },
+      "국제 헬스케어": { eng: "Global healthcare", chn: "国际医疗保健" },
+      "글로벌 헬스케어 솔루션": { eng: "Global healthcare solutions", chn: "全球医疗保健解决方案" },
+      "혁신 치료제 개발": { eng: "Innovative therapeutics", chn: "创新治疗药物" },
+      "혁신 의약품 개발": { eng: "Innovative drug development", chn: "创新药品开发" },
+      "한국 제약 솔루션": { eng: "Korean pharma solutions", chn: "韩国制药方案" },
+      "의료기기 혁신": { eng: "Medical device innovation", chn: "医疗器械创新" },
+      "엑소좀 줄기세포 기술": { eng: "Exosome stem-cell technology", chn: "外泌体干细胞技术" },
+      "재료과학 혁신": { eng: "Materials science innovation", chn: "材料科学创新" },
+      "헬스케어 IT 솔루션": { eng: "Healthcare IT solutions", chn: "医疗信息化解决方案" },
+      "과학 세대": { eng: "Next-generation science", chn: "新一代科学" },
+      "차세대 치료제": { eng: "Next-generation therapeutics", chn: "下一代治疗" },
+      "과학적 혁신": { eng: "Scientific innovation", chn: "科学创新" },
+      "바이오테크 솔루션": { eng: "Biotech solutions", chn: "生物科技解决方案" }
+    }
+    if (lang === 'kor') return korDesc
+    const key = map[korDesc]
+    if (!key) return korDesc
+    return lang === 'eng' ? key.eng : key.chn
   }
 
   const content = getContent()
@@ -131,16 +161,38 @@ const Clients = ({ language }) => {
       >
         <motion.div className="clients-header" variants={itemVariants}>
           <h2 className="clients-title">{content.title}</h2>
-                    <h1 className="clients-subtitle">
-            세계적인 <span className="highlight">제약사</span>와 <span className="highlight">바이오 기업</span>들이<br />
-            <span className="highlight">메디라인파트너스</span>를 신뢰합니다
-          </h1>
+          <h1 className="clients-subtitle">{content.subtitle}</h1>
           <p className="clients-description question">
-            <span className="highlight">임상 성공</span>의 파트너, 왜 <span className="highlight">메디라인파트너스</span>일까요?
+            {language === 'eng' ? (
+              <>
+                <span className="highlight">Global partners</span> trust <span className="highlight">MediLine Partners</span>
+              </>
+            ) : language === 'chn' ? (
+              <>
+                <span className="highlight">全球合作伙伴</span>信赖<span className="highlight">MediLine Partners</span>
+              </>
+            ) : (
+              <>
+                <span className="highlight">글로벌 파트너사</span>가 <span className="highlight">메디라인파트너스</span>를 신뢰합니다
+              </>
+            )}
           </p>
           <p className="clients-description answer">
-            <span className="highlight">글로벌 스탠더드</span>에 맞춘 전문성, <span className="highlight">수많은 성공 사례</span>, <span className="highlight">20년간 축적된 노하우</span>로<br />
-            <span className="highlight">확실한 차이</span>를 만듭니다.
+            {language === 'eng' ? (
+              <>
+                With expertise aligned to <span className="highlight">global standards</span>, <span className="highlight">numerous success stories</span>, and <span className="highlight">20 years of accumulated know-how</span>, we create a <span className="highlight">definitive difference</span>.
+              </>
+            ) : language === 'chn' ? (
+              <>
+                凭借符合<span className="highlight">全球标准</span>的专业性、<span className="highlight">众多成功案例</span>和<span className="highlight">20年积累的经验</span>，<br />
+                我们创造<span className="highlight">显著差异</span>。
+              </>
+            ) : (
+              <>
+                <span className="highlight">글로벌 스탠더드</span>에 맞춘 전문성, <span className="highlight">수많은 성공 사례</span>, <span className="highlight">20년간 축적된 노하우</span>로<br />
+                <span className="highlight">확실한 차이</span>를 만듭니다.
+              </>
+            )}
           </p>
         </motion.div>
 
@@ -168,8 +220,8 @@ const Clients = ({ language }) => {
                       🏢
                     </div>
                   </div>
-                  <h3 className="client-name">{client.name}</h3>
-                  <p className="client-description">{client.description}</p>
+                  <h3 className="client-name">{language === 'kor' ? client.name : (client.englishName || client.name)}</h3>
+                  <p className="client-description">{translateDescription(client.description, language)}</p>
                 </div>
               ))}
             </div>

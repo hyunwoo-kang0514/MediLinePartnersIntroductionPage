@@ -69,10 +69,11 @@
 
 .section-header p {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: white !important;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .contact-info h3,

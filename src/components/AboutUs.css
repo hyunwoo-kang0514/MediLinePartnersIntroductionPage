@@ -155,10 +155,6 @@
 .section-details strong {
   font-weight: 700;
   color: #333;
-  background: linear-gradient(135deg, #FF0000, #FF4444);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .section-details strong:last-child {

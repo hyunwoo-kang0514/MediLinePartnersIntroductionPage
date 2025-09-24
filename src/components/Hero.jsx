@@ -22,35 +22,102 @@ const Hero = ({ language }) => {
   const DURATION = 7000 // 7초
   const TEXT_ANIMATION_DELAY = 1600 // 1.6초
 
-  const tabs = [
-    { 
-      id: 0, 
-      number: '01', 
-      title: 'ABOUT US', 
-      content: '메디라인파트너스는 20년 연속 업계 1위 CRO 컨설팅 전문 기업입니다.',
-      heroTitle: '메디라인파트너스는',
-      heroSubtitle: '20년 연속 업계 1위',
-      heroDescription: 'CRO 컨설팅 전문 기업입니다.'
-    },
-    { 
-      id: 1, 
-      number: '02', 
-      title: 'PV 서비스', 
-      content: '전문적인 약물감시 서비스로 안전성 확보',
-      heroTitle: '전문적인',
-      heroSubtitle: '약물감시 서비스',
-      heroDescription: '안전성 확보를 위한 체계적인 관리'
-    },
-    { 
-      id: 2, 
-      number: '03', 
-      title: 'RA 서비스', 
-      content: '체계적인 인허가 컨설팅으로 성공적인 승인',
-      heroTitle: '체계적인',
-      heroSubtitle: '인허가 컨설팅',
-      heroDescription: '성공적인 승인을 위한 전문 서비스'
+  const getTabs = () => {
+    switch(language) {
+      case 'eng':
+        return [
+          { 
+            id: 0, 
+            number: '01', 
+            title: 'ABOUT\nUS', 
+            content: 'Mediline Partners is a specialized company in pharmaceutical and medical device licensing and pharmacovigilance.',
+            heroTitle: 'Mediline Partners is',
+            heroSubtitle: 'pharmaceutical and medical device licensing specialist',
+            heroDescription: 'company.'
+          },
+          { 
+            id: 1, 
+            number: '02', 
+            title: 'RA\nSERVICES', 
+            content: 'Systematic licensing consulting for successful approval',
+            heroTitle: 'Systematic',
+            heroSubtitle: 'licensing consulting',
+            heroDescription: 'Professional services for successful approval'
+          },
+          { 
+            id: 2, 
+            number: '03', 
+            title: 'PV\nSERVICES', 
+            content: 'Professional pharmacovigilance services for safety assurance',
+            heroTitle: 'Professional',
+            heroSubtitle: 'pharmacovigilance services',
+            heroDescription: 'Systematic management for safety assurance'
+          }
+        ]
+      case 'chn':
+        return [
+          { 
+            id: 0, 
+            number: '01', 
+            title: '关于\n我们', 
+            content: 'Mediline Partners是一家专业的药品和医疗器械许可及药物警戒公司。',
+            heroTitle: 'Mediline Partners是',
+            heroSubtitle: '药品医疗器械许可及药物警戒专业',
+            heroDescription: '公司。'
+          },
+          { 
+            id: 1, 
+            number: '02', 
+            title: 'RA\n服务', 
+            content: '系统性许可咨询，实现成功批准',
+            heroTitle: '系统性',
+            heroSubtitle: '许可咨询',
+            heroDescription: '成功批准的专业服务'
+          },
+          { 
+            id: 2, 
+            number: '03', 
+            title: 'PV\n服务', 
+            content: '专业药物警戒服务，确保安全性',
+            heroTitle: '专业',
+            heroSubtitle: '药物警戒服务',
+            heroDescription: '确保安全性的系统性管理'
+          }
+        ]
+      default: // kor
+        return [
+          { 
+            id: 0, 
+            number: '01', 
+            title: 'ABOUT\nUS', 
+            content: '메디라인파트너스는 의약품 의료기기 인허가 및 약물감시 전문기업입니다.',
+            heroTitle: '메디라인파트너스는',
+            heroSubtitle: '의약품 의료기기 인허가 및 약물감시 전문',
+            heroDescription: '기업입니다.'
+          },
+          { 
+            id: 1, 
+            number: '02', 
+            title: 'RA\n서비스', 
+            content: '체계적인 인허가 컨설팅으로 성공적인 승인',
+            heroTitle: '체계적인',
+            heroSubtitle: '인허가 컨설팅',
+            heroDescription: '성공적인 승인을 위한 전문 서비스'
+          },
+          { 
+            id: 2, 
+            number: '03', 
+            title: 'PV\n서비스', 
+            content: '전문적인 약물감시 서비스로 안전성 확보',
+            heroTitle: '전문적인',
+            heroSubtitle: '약물감시 서비스',
+            heroDescription: '안전성 확보를 위한 체계적인 관리'
+          }
+        ]
     }
-  ]
+  }
+
+  const tabs = getTabs()
 
   // Single Source of Truth - State Machine Functions
   const startSlide = (index) => {
@@ -324,7 +391,12 @@ const Hero = ({ language }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              고객의 성공을 돕는 전략적 파트너로서 인허가 전주기 One Stop 통합 서비스를 지원합니다
+              {language === 'eng' 
+                ? "Strategic partner providing full-cycle One Stop integrated licensing services"
+                : language === 'chn'
+                ? "作为帮助客户成功的战略合作伙伴，我们提供全周期一站式综合许可服务"
+                : "고객의 성공을 돕는 전략적 파트너로서 인허가 전주기 One Stop 통합 서비스를 지원합니다"
+              }
             </motion.p>
           </motion.div>
         </AnimatePresence>
@@ -338,7 +410,7 @@ const Hero = ({ language }) => {
                 onClick={() => handleTabClick(tab.id)}
               >
                 <span className="tab-number">{tab.number}</span>
-                <span className="tab-title">{tab.title}</span>
+                <span className="tab-title" style={{ whiteSpace: 'pre-line' }}>{tab.title}</span>
                 {activeTab === tab.id && (
                   <div className="tab-underline">
                     <div 

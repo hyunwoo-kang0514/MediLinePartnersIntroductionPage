@@ -46,8 +46,8 @@ const AboutUs = ({ language }) => {
           },
           personnelSection: {
             title: "Message from CEO",
-            description: "We promise to be a reliable partner for pharmaceutical safety management to ensure safe use of your company's pharmaceuticals.",
-            details: `In Korea, pharmaceutical license holders must have a pharmaceutical safety management officer and conduct post-marketing safety management. As safety information becomes diverse and pharmacovigilance regulations are gradually strengthened, expectations for pharmacovigilance work are increasing, but it is not easy to find professional personnel to perform this work.\n\nMedisafe provides professional services for pharmacovigilance work. Based on more than 20 years of pharmacovigilance and licensing experience in multinational companies, we cooperate with clients to comply not only with domestic regulations but also with international guidelines.`
+            description: "We promise to be a partner that walks with you from the early development stages of your pharmaceuticals and medical devices through licensing and safety management.",
+            details: `Mediline Partners provides <strong>professional consulting services</strong> that strictly comply with domestic regulations as well as <strong>ICH and other international guidelines</strong>, based on the <strong>experience and know-how</strong> accumulated over the past <strong>25 years</strong> by working with multinational pharmaceutical companies, bio-ventures, and domestic and international medical device companies.\n\nGoing forward, we will continue to be a <strong>reliable licensing expert partner</strong> and work together for your <strong>successful market entry</strong> and <strong>sustainable growth</strong>.\n\n<strong style="color: #333; font-weight: 700;">Thank you.<br>Mediline Partners Co., Ltd.</strong>`
           }
         };
       case 'chn':
@@ -61,8 +61,8 @@ const AboutUs = ({ language }) => {
           },
           personnelSection: {
             title: "CEO致辞",
-            description: "我们承诺成为药品安全管理的可靠合作伙伴，确保贵公司药品的安全使用。",
-            details: `在韩国，药品许可持有人必须配备药品安全管理负责人并进行上市后安全管理。随着安全信息的多样化和药物警戒法规的逐步加强，对药物警戒工作的期望水平也在提高，但要找到执行这项工作的专业人员并不容易。\n\nMedisafe为药物警戒工作提供专业服务。基于20多年在跨国公司的药物警戒和许可经验，我们与客户合作，不仅遵守国内法规，还遵守国际指导原则。`
+            description: "我们承诺成为从贵公司药品和医疗器械初期开发阶段到许可，以及在此过程中的安全管理全程陪伴的合作伙伴。",
+            details: `美迪兰合作伙伴基于过去<strong>25年间</strong>与跨国制药公司、生物风险投资、国内外医疗器械公司合作积累的<strong>经验和专业知识</strong>，严格遵守国内法规以及<strong>ICH等国际指导原则</strong>，提供<strong>专业咨询服务</strong>。\n\n今后也将作为<strong>可信赖的许可专业合作伙伴</strong>，与贵公司的<strong>成功市场进入</strong>和<strong>可持续发展</strong>共同前行。\n\n<strong style="color: #333; font-weight: 700;">谢谢。<br>美迪兰合作伙伴有限公司</strong>`
           }
         };
       default: // kor

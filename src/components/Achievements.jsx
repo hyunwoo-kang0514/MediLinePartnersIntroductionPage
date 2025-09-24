@@ -146,13 +146,20 @@ const Achievements = ({ language }) => {
             animate={isInView ? "visible" : "hidden"}
           >
             <motion.h2 className="experiences-title" variants={itemVariants}>
-              EXPERIENCES
+              {language === 'eng' ? 'EXPERIENCES' : 
+               language === 'chn' ? '经验' : 'EXPERIENCES'}
             </motion.h2>
             <motion.p className="experiences-description" variants={itemVariants}>
-              글로벌 기준을 충족하는 높은 수준의 효율적인 임상시험 서비스를 제공합니다.
+              {language === 'eng' 
+                ? "We provide high-level, efficient clinical trial services that meet global standards."
+                : language === 'chn'
+                ? "我们提供满足全球标准的高水平、高效的临床试验服务。"
+                : "글로벌 기준을 충족하는 높은 수준의 효율적인 임상시험 서비스를 제공합니다."
+              }
             </motion.p>
             <motion.a href="#services" className="view-more-link" variants={itemVariants}>
-              VIEW MORE →
+              {language === 'eng' ? 'VIEW MORE →' : 
+               language === 'chn' ? '查看更多 →' : 'VIEW MORE →'}
             </motion.a>
           </motion.div>
         </div>

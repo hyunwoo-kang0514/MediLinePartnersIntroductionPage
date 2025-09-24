@@ -77,11 +77,14 @@ const Header = ({ language, onLanguageChange }) => {
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <a href={item.href}>{item.text}</a>
-              </li>
-            ))}
+            {menuItems.map((item, index) => {
+              const isContact = item.href === "#contact"
+              return (
+                <li key={index}>
+                  <a href={item.href} className={isContact ? 'contact-cta' : ''}>{item.text}</a>
+                </li>
+              )
+            })}
           </ul>
           <LanguageToggle 
             language={language} 

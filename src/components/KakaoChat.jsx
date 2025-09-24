@@ -3,8 +3,8 @@ import './KakaoChat.css'
 
 const KakaoChat = () => {
   const handleKakaoChat = () => {
-    // 카카오톡 채널 링크 (실제 링크로 교체 필요) 누나 아이디
-    window.open('https://open.kakao.com/your-channel', '_blank')
+    // 카카오톡 채널 링크
+    window.open('http://pf.kakao.com/_tzxakn', '_blank')
   }
 
   return (
