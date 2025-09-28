@@ -90,9 +90,9 @@ const Hero = ({ language }) => {
             id: 0, 
             number: '01', 
             title: 'ABOUT\nUS', 
-            content: '메디라인파트너스는 의약품 의료기기 인허가 및 약물감시 전문기업입니다.',
+            content: '메디라인파트너스는 의약품 의료기기 인허가 및 약물감시 전문 기업입니다.',
             heroTitle: '메디라인파트너스는',
-            heroSubtitle: '의약품 의료기기 인허가 및 약물감시 전문',
+            heroSubtitle: '의약품 의료기기\n인허가 및 약물감시 전문',
             heroDescription: '기업입니다.'
           },
           { 
@@ -381,7 +381,7 @@ const Hero = ({ language }) => {
               transition={{ duration: 1.0, delay: 0.4 }}
             >
               {currentTab.heroTitle}<br />
-              <span className="highlight">{currentTab.heroSubtitle}</span><br />
+              <span className="highlight" style={{ whiteSpace: 'pre-line' }}>{currentTab.heroSubtitle}</span><br />
               {currentTab.heroDescription}
             </motion.h1>
             

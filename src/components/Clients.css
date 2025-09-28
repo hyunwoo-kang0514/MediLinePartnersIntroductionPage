@@ -127,12 +127,8 @@
 }
 
 .clients-subtitle .highlight {
-  color: #FF4D4D;
+  color: #FF0000;
   font-weight: 900;
-  background: linear-gradient(135deg, #FF4D4D 0%, #FF6B6B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .clients-description {
@@ -211,12 +207,8 @@
 
 /* 텍스트 하이라이트 스타일 */
 .highlight {
-  color: #FF4D4D;
+  color: #FF0000;
   font-weight: 700;
-  background: linear-gradient(135deg, #FF4D4D 0%, #FF6B6B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   text-shadow: 0 2px 4px rgba(255, 77, 77, 0.1);
 }
 
@@ -529,89 +521,53 @@
 }
 
 @media (max-width: 768px) {
+  .clients {
+    padding: 3rem 0;
+  }
+  
   .clients-container {
     padding: 0 1rem;
   }
   
+  .clients-header {
+    margin-bottom: 2.5rem;
+  }
+  
   .clients-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 0.8rem;
   }
   
   .clients-subtitle {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: 1.2rem;
   }
   
-  .clients-description {
-    font-size: 1.1rem;
+  .clients-description.question {
+    font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+    margin-bottom: 1rem;
   }
   
-  .slider-container {
+  .clients-description.answer {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+  }
+  
+  .clients-marquee {
+    margin-bottom: 2rem;
+  }
+  
+  .marquee-container {
     height: 300px;
   }
   
-  .slide-content {
+  .marquee-track {
+    gap: 1.5rem;
+  }
+  
+  .marquee-card {
+    width: 200px;
+    height: 260px;
     padding: 1.5rem;
-  }
-  
-  .client-logo-container {
-    height: 150px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .client-logo-img {
-    max-width: 150px;
-    max-height: 100px;
-  }
-  
-  .client-name {
-    font-size: 2rem;
-  }
-  
-  .client-description {
-    font-size: 1.1rem;
-  }
-  
-  .control-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
-  
-  .play-pause-btn {
-    width: 55px;
-    height: 55px;
-    font-size: 1.1rem;
-  }
-  
-  .prev-btn, .next-btn {
-    font-size: 1.8rem;
-  }
-  
-  .indicator {
-    width: 10px;
-    height: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .clients-title {
-    font-size: 1.8rem;
-  }
-  
-  .clients-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .clients-description {
-    font-size: 1rem;
-  }
-  
-  .slider-container {
-    height: 250px;
-  }
-  
-  .slide-content {
-    padding: 1rem;
   }
   
   .client-logo-container {
@@ -621,48 +577,81 @@
   
   .client-logo-img {
     max-width: 120px;
-    max-height: 80px;
+    max-height: 90px;
   }
   
   .client-name {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+    margin-bottom: 0.6rem;
   }
   
   .client-description {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .clients {
+    padding: 2rem 0;
   }
   
-  .control-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+  .clients-container {
+    padding: 0 0.8rem;
   }
   
-  .play-pause-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1rem;
+  .clients-header {
+    margin-bottom: 2rem;
   }
   
-  .prev-btn, .next-btn {
-    font-size: 1.6rem;
+  .clients-title {
+    font-size: clamp(1.6rem, 3.5vw, 1.8rem);
+    margin-bottom: 0.6rem;
   }
   
-  .slider-controls {
-    gap: 0.8rem;
+  .clients-subtitle {
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    margin-bottom: 1rem;
   }
   
-  .slider-indicators {
-    gap: 0.4rem;
+  .clients-description.question {
+    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+    margin-bottom: 0.8rem;
   }
   
-  .indicator {
-    width: 8px;
-    height: 8px;
+  .clients-description.answer {
+    font-size: clamp(0.9rem, 2vw, 1rem);
   }
   
-  .cta-button {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+  .marquee-container {
+    height: 250px;
+  }
+  
+  .marquee-track {
+    gap: 1rem;
+  }
+  
+  .marquee-card {
+    width: 180px;
+    height: 220px;
+    padding: 1.2rem;
+  }
+  
+  .client-logo-container {
+    height: 100px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .client-logo-img {
+    max-width: 100px;
+    max-height: 70px;
+  }
+  
+  .client-name {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .client-description {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   }
 } 

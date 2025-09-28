@@ -154,7 +154,7 @@ const Achievements = ({ language }) => {
                 ? "We provide high-level, efficient clinical trial services that meet global standards."
                 : language === 'chn'
                 ? "我们提供满足全球标准的高水平、高效的临床试验服务。"
-                : "글로벌 기준을 충족하는 높은 수준의 효율적인 임상시험 서비스를 제공합니다."
+                : "글로벌 기준을 충족하는 높은 수준의 효율적인 컨설팅 서비스를 제공합니다."
               }
             </motion.p>
             <motion.a href="#services" className="view-more-link" variants={itemVariants}>
