@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import companyImage from '../../images/company_image.png'
 import './Contact.css'
 
@@ -10,6 +11,13 @@ const Contact = ({ language }) => {
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // EmailJS 초기화 (수정)
+  React.useEffect(() => {
+    emailjs.init({
+      publicKey: "-7eCkFzaE_wt7rC7c", // (수정) 실제 Public Key 적용
+    });
+  }, [])
 
   const getContent = () => {
     switch(language) {
@@ -87,47 +95,27 @@ const Contact = ({ language }) => {
     setIsSubmitting(true)
 
     try {
-      // 임시 구현: EmailJS 설정이 완료될 때까지 콘솔에 문의 내용 출력
-      const inquiryData = {
-        timestamp: new Date().toLocaleString('ko-KR'),
+      // EmailJS 템플릿 파라미터 설정 (수정)
+      const templateParams = {
         name: formData.name,
         email: formData.email,
         company: formData.company || '미입력',
-        message: formData.message
-      }
-
-      // 콘솔에 문의 내용 출력 (개발자 도구에서 확인 가능)
-      console.log('=== 새로운 문의가 접수되었습니다 ===')
-      console.log('접수 시간:', inquiryData.timestamp)
-      console.log('이름:', inquiryData.name)
-      console.log('이메일:', inquiryData.email)
-      console.log('회사명:', inquiryData.company)
-      console.log('문의내용:', inquiryData.message)
-      console.log('================================')
-
-      // 실제 EmailJS가 설정되면 아래 주석을 해제하고 위의 임시 코드를 제거하세요
-      /*
-      const serviceId = 'service_mediline'
-      const templateId = 'template_contact'
-      const publicKey = 'YOUR_PUBLIC_KEY'
-
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || '미입력',
         message: formData.message,
-        to_email: 'hyunwoo307403@gmail.com',
-        reply_to: formData.email
+        time: new Date().toLocaleString('ko-KR')
       }
 
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
-      */
+      // EmailJS로 이메일 발송 (수정)
+      const serviceId = 'service_qimct0d' // (수정) 실제 서비스 ID 적용
+      const templateId = 'template_n2ufb4b' // (수정) 실제 템플릿 ID 적용
+
+      await emailjs.send(serviceId, templateId, templateParams)
       
+      console.log('이메일 발송 성공!')
       alert(content.successMessage)
       setFormData({ name: '', email: '', company: '', message: '' })
       
     } catch (error) {
-      console.error('문의 처리 중 오류:', error)
+      console.error('이메일 발송 실패:', error)
       alert(content.errorMessage)
     } finally {
       setIsSubmitting(false)

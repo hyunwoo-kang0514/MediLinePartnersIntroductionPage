@@ -183,9 +183,9 @@
 /* 반응형 디자인 */
 @media (max-width: 768px) {
   .hero {
-    min-height: calc(100vh + 60px);
-    margin-top: -60px;
-    padding-top: 60px;
+    min-height: 100vh;
+    margin-top: calc(var(--header-h, 70px) * -1);
+    padding-top: calc(var(--header-h, 70px));
   }
   
   .hero-container {
@@ -197,17 +197,21 @@
   }
   
   .tabs-container {
-    gap: 0.8rem;
-    flex-direction: column;
+    gap: 0.5rem;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
   
   .tab-item {
-    width: 90%;
-    max-width: 280px;
-    padding: 1rem;
-    min-height: 80px;
+    width: auto;
+    min-width: 80px;
+    max-width: 100px;
+    padding: 0.8rem 0.5rem;
+    min-height: 70px;
+    flex: 1;
   }
   
   .tab-title {
@@ -233,9 +237,9 @@
 
 @media (max-width: 480px) {
   .hero {
-    min-height: calc(100vh + 60px);
-    margin-top: -60px;
-    padding-top: 60px;
+    min-height: 100vh;
+    margin-top: calc(var(--header-h, 70px) * -1);
+    padding-top: calc(var(--header-h, 70px));
   }
   
   .hero-container {
@@ -247,10 +251,12 @@
   }
   
   .tab-item {
-    width: 95%;
-    max-width: 260px;
-    padding: 0.8rem;
-    min-height: 70px;
+    width: auto;
+    min-width: 70px;
+    max-width: 90px;
+    padding: 0.6rem 0.4rem;
+    min-height: 60px;
+    flex: 1;
   }
   
   .tab-number {

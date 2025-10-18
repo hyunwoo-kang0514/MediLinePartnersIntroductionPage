@@ -129,35 +129,35 @@ const Services = ({ language }) => {
             ],
             icc: [
               {
-                title: "1. In-Country Caretaker",
+                title: "1. License Maintenance", // (수정)
                 items: [
-                  "Foreign Manufacturer Domestic Product License Holder"
+                  "License/Certification/Notification Amendment",
+                  "License Renewal",
+                  "KGMP Periodic Audit"
                 ]
               },
               {
-                title: "2. Product License and Insurance Registration",
+                title: "2. Import and Customs Clearance", // (수정)
                 items: [
-                  "Pharmaceutical and Medical Device Import Product License/Certification, Notification/Changes",
-                  "KGMP Certification",
-                  "Pharmaceutical Insurance/Drug Price Registration",
-                  "Medical Device New Medical Technology Assessment (HIRA)"
+                  "Customs Clearance Report",
+                  "Inventory and Distribution Management",
+                  "Domestic Quality Control",
+                  "KMDIA Import Performance Reporting"
                 ]
               },
               {
-                title: "3. Import/Customs Clearance",
+                title: "3. Safety Information Reporting", // (수정)
                 items: [
-                  "Order Reception/Purchase Orders",
-                  "Customs Clearance Pre-reporting/Progress",
-                  "Import/Export Inspection/Records",
-                  "Domestic Quality Management",
-                  "Warehouse Rental and Inventory Management"
+                  "Adverse Event Reporting",
+                  "Complaint Notification",
+                  "Corrective and Preventive Action"
                 ]
               },
               {
-                title: "4. Individual Case Safety Reporting",
+                title: "4. Post-Market Surveillance, PMS", // (수정)
                 items: [
-                  "Domestic Adverse Event Expedited/Periodic Reporting",
-                  "Foreign Serious Adverse Drug Reaction Expedited Reporting"
+                  "Non-Conforming Product Management",
+                  "Product Recall"
                 ]
               }
             ]
@@ -256,35 +256,35 @@ const Services = ({ language }) => {
             ],
             icc: [
               {
-                title: "1. 国内代理（In-Country Caretaker）",
+                title: "1. 进口品种维护管理", // (수정)
                 items: [
-                  "外国制造商国内品种许可持有人（License holder）"
+                  "许可/认证/申报变更",
+                  "品种更新",
+                  "KGMP定期审查应对"
                 ]
               },
               {
-                title: "2. 品种许可及医保/定价登记",
+                title: "2. 进口及通关", // (수정)
                 items: [
-                  "药品、医疗器械进口品种 许可/认证、申报/变更",
-                  "KGMP认证",
-                  "药品保险/定价登记",
-                  "医疗器械新医疗技术评价（HIRA）"
-                ]
-              },
-              {
-                title: "3. 进口/通关",
-                items: [
-                  "订单接收/采购",
-                  "报关预申报/进度管理",
-                  "出入库检验/记录",
+                  "进口通关预报告申请/签发",
+                  "出入库管理",
                   "国内质量管理",
-                  "仓储租赁及库存管理"
+                  "KMDIA进口实绩报告"
                 ]
               },
               {
-                title: "4. 个例不良事件报告",
+                title: "3. 安全性信息报告", // (수정)
                 items: [
-                  "国内不良事件速报/定期报告",
-                  "海外严重不良反应速报"
+                  "异常事例、副作用报告",
+                  "客户投诉报告",
+                  "纠正措施(CAPA)"
+                ]
+              },
+              {
+                title: "4. 事后管理", // (수정)
+                items: [
+                  "不合格产品管理",
+                  "产品召回"
                 ]
               }
             ]
@@ -383,35 +383,35 @@ const Services = ({ language }) => {
             ],
             icc: [
               {
-                title: "1. In-Country Caretaker",
+                title: "1. 수입품목 유지 관리", // (수정)
                 items: [
-                  "외국 제조사 국내 품목허가 대리인(License holder)"
+                  "허가/인증/신고변경",
+                  "품목갱신",
+                  "KGMP 정기 심사 대응"
                 ]
               },
               {
-                title: "2. 품목허가 및 보험등재",
+                title: "2. 수입 및 통관", // (수정)
                 items: [
-                  "의약품, 의료기기 수입품목 허가/인증. 신고/변경",
-                  "KGMP 인증",
-                  "의약품 보험/약가등재",
-                  "의료기기 신의료기술평가(HIRA)"
+                  "수입통관예정보고 신청/발급",
+                  "입출고 관리",
+                  "국내 품질관리",
+                  "KMDIA 수입실적보고"
                 ]
               },
               {
-                title: "3. 수입/통관",
+                title: "3. 안전성 정보 보고", // (수정)
                 items: [
-                  "주문접수/발주",
-                  "통관예정보고/ 진행",
-                  "입출고 검사/기록",
-                  "국내 품질 관리",
-                  "창고 임대 및 재고 관리"
+                  "이상사례, 부작용 보고",
+                  "고객불만 보고",
+                  "시정조치(CAPA)"
                 ]
               },
               {
-                title: "4. 개별이상사례보고",
+                title: "4. 사후관리", // (수정)
                 items: [
-                  "국내 이상사례 신속보고/정기보고",
-                  "해외 중대한 약물이상반응 신속보고"
+                  "부적합 제품 관리",
+                  "제품 회수"
                 ]
               }
             ]

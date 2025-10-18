@@ -92,8 +92,8 @@ const Hero = ({ language }) => {
             title: 'ABOUT\nUS', 
             content: '메디라인파트너스는 의약품 의료기기 인허가 및 약물감시 전문 기업입니다.',
             heroTitle: '메디라인파트너스는',
-            heroSubtitle: '의약품 의료기기\n인허가 및 약물감시 전문',
-            heroDescription: '기업입니다.'
+            heroSubtitle: '의약품·의료기기 인허가 및 약물감시', // (수정)
+            heroDescription: '컨설팅 전문기업입니다.'
           },
           { 
             id: 1, 

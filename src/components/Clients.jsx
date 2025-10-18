@@ -139,8 +139,7 @@ const Clients = ({ language }) => {
       "헬스케어 IT 솔루션": { eng: "Healthcare IT solutions", chn: "医疗信息化解决方案" },
       "과학 세대": { eng: "Next-generation science", chn: "新一代科学" },
       "차세대 치료제": { eng: "Next-generation therapeutics", chn: "下一代治疗" },
-      "과학적 혁신": { eng: "Scientific innovation", chn: "科学创新" },
-      "바이오테크 솔루션": { eng: "Biotech solutions", chn: "生物科技解决方案" }
+      "과학적 혁신": { eng: "Scientific innovation", chn: "科学创新" }
     }
     if (lang === 'kor') return korDesc
     const key = map[korDesc]
