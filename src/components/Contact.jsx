@@ -152,7 +152,7 @@ const Contact = ({ language }) => {
               <div className="contact-icon">📧</div>
               <div>
                 <h4>{content.email}</h4>
-                <p>MLP@medilinepartners.net</p>
+                <p>mlp@medilinepartners.com</p>
               </div>
             </div>
             <div className="contact-item">

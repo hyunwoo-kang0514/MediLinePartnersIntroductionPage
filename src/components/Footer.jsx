@@ -7,17 +7,17 @@ const Footer = ({ language }) => {
     switch(language) {
       case 'eng':
         return {
-          address: "Address : 818, Seolleung-ro, Gangnam-gu, Seoul | Tel: +82-2-6966-4133 | Email : MLP@medilinepartners.net",
+          address: "Address : 818, Seolleung-ro, Gangnam-gu, Seoul | Tel: +82-2-6966-4133 | Email : mlp@medilinepartners.com",
           copyright: "COPYRIGHT © 2024 MEDiLiNE PARTNERS. ALL RIGHTS RESERVED."
         }
       case 'chn':
         return {
-          address: "地址：首尔特别市江南区宣陵路818 | 电话：+82-2-6966-4133 | 电子邮件：MLP@medilinepartners.net",
+          address: "地址：首尔特别市江南区宣陵路818 | 电话：+82-2-6966-4133 | 电子邮件：mlp@medilinepartners.com",
           copyright: "版权所有 © 2024 美迪兰合作伙伴。保留所有权利。"
         }
       default: // kor
         return {
-          address: "주소 : 서울특별시 강남구 선릉로 818 | 대표번호: +82-2-6966-4133 | 이메일 : MLP@medilinepartners.net",
+          address: "주소 : 서울특별시 강남구 선릉로 818 | 대표번호: +82-2-6966-4133 | 이메일 : mlp@medilinepartners.com",
           copyright: "COPYRIGHT © 2024 MEDiLiNE PARTNERS. ALL RIGHTS RESERVED."
         }
     }
