@@ -5,6 +5,15 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* 모바일에서 헤더 높이 고려한 스크롤 오프셋 */
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+  .achievements {
+    scroll-margin-top: 60px;
+    padding-top: 0; /* 모바일에서 상단 패딩 제거 - Hero처럼 딱 붙게 */
+  }
 }
 
 /* LSK 스타일의 Experiences 섹션 */
@@ -226,69 +235,148 @@
 }
 
 @media (max-width: 768px) {
+  /* 모바일에서 전체 레이아웃을 세로로 변경 */
+  .achievements {
+    display: flex;
+    flex-direction: column;
+  }
+  
   .experiences-section {
-    height: 50vh;
-    min-height: 400px;
+    width: 100%;
+    height: auto;
+    min-height: 350px; /* 높이 증가 */
+    order: 1; /* 빨간색 EXPERIENCES 섹션을 위로 */
+    margin-top: 0; /* 상단 마진 제거하여 위 섹션과 완전히 붙게 */
   }
   
   .experiences-content {
-    padding: 0 1rem;
+    padding: 2rem 1rem 2rem 1rem; /* 상단 패딩을 위 섹션과 일치 */
   }
   
   .experiences-description {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
   }
   
   .stats-section {
-    height: 50vh;
-    min-height: 400px;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    order: 2; /* 카드들을 아래로 */
   }
   
   .stats-container {
-    padding: 0 1rem;
+    padding: 2rem 1rem;
   }
   
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* 세로로 일렬 배치 */
     gap: 1.5rem;
+    height: auto;
+    width: 100%;
   }
   
   .stat-card {
-    padding: 1.5rem 1rem;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column; /* 세로 배치로 복원 */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 0;
   }
   
-  .stat-number {
-    font-size: 2rem;
+  .stat-card .stat-number {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    min-width: auto;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .stat-card .stat-label {
+    font-size: 1.1rem;
+    height: auto;
+    line-height: 1.4;
+    flex: none;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: normal;
+  }
+  
+  .stat-card .stat-line {
+    display: block;
+    width: 60px;
+    margin-top: 0.5rem;
   }
   
 }
 
 @media (max-width: 480px) {
   .experiences-section {
-    height: 40vh;
-    min-height: 300px;
+    width: 100%;
+    height: auto;
+    min-height: 300px; /* 높이 증가 */
+    order: 1; /* 빨간색 EXPERIENCES 섹션을 위로 */
+    margin-top: 0; /* 상단 마진 제거하여 위 섹션과 완전히 붙게 */
   }
   
   .experiences-description {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    line-height: 1.3;
   }
   
   .stats-section {
-    height: 40vh;
-    min-height: 300px;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    order: 2; /* 카드들을 아래로 */
   }
   
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr; /* 세로로 일렬 배치 */
+    gap: 1.2rem;
+    height: auto;
+    width: 100%;
   }
   
   .stat-card {
-    padding: 1.2rem 1rem;
+    width: 100%;
+    padding: 1.8rem 1.2rem;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
   }
   
   .stat-number {
-    font-size: 1.8rem;
+    font-size: 3rem;
+    margin-bottom: 0.4rem;
+    margin-right: 0;
+    min-width: auto;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    height: auto;
+    line-height: 1.3;
+    flex: none;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: normal;
   }
   
 }

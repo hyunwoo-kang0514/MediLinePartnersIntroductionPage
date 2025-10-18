@@ -7,6 +7,15 @@
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
+  /* 모바일에서 헤더 높이 고려한 스크롤 오프셋 */
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+  .about {
+    scroll-margin-top: 60px;
+    padding-top: 0; /* 모바일에서 상단 패딩 제거 - Hero처럼 딱 붙게 */
+  }
 }
 
 .about::before {
