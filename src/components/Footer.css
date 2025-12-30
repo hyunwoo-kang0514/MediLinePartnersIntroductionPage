@@ -1,5 +1,5 @@
 .footer {
-  background: #333;
+  background: #251E1C;
   color: white;
   padding: 2rem 0;
 }
@@ -22,7 +22,7 @@
 .footer-logo-image {
   height: 50px;
   width: auto;
-  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(75%) sepia(85%) saturate(1200%) hue-rotate(5deg) brightness(110%) contrast(95%);
 }
 
 .footer-contact {

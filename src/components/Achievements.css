@@ -1,384 +1,445 @@
 .achievements {
   width: 100%;
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../images/Acheivement_background_image.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* 모바일에서 헤더 높이 고려한 스크롤 오프셋 */
+  background: transparent;
+  margin: 0;
+  padding: 0;
   scroll-margin-top: 70px;
+}
+
+/* Hero/AboutUs 스타일의 스플릿 레이아웃 */
+.experiences-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 왼쪽 섹션 - 다크 배경 */
+.experiences-left {
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(234, 190, 50, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(234, 190, 50, 0.05) 0%, transparent 50%),
+    #251E1C;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 6rem;
+  position: relative;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.experiences-left::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(234, 190, 50, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.experiences-left::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(234, 190, 50, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+
+.experiences-content-wrapper {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.experiences-badge {
+  display: inline-block;
+  background: #EABE32;
+  color: #251E1C;
+  padding: 0.7rem 1.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(234, 190, 50, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.experiences-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.experiences-badge:hover::before {
+  left: 100%;
+}
+
+.experiences-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.experiences-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #EABE32, rgba(234, 190, 50, 0.3));
+  margin-bottom: 3rem;
+  border-radius: 2px;
+}
+
+.experiences-description {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 600;
+  line-height: 1.9;
+  margin-bottom: 3rem;
+  word-break: keep-all;
+  color: white;
+  max-width: 90%;
+}
+
+.view-more-link {
+  color: #EABE32;
+  text-decoration: none;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 2px solid #EABE32;
+  border-radius: 6px;
+  background: rgba(234, 190, 50, 0.1);
+}
+
+.view-more-link:hover {
+  color: #251E1C;
+  background: #EABE32;
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(234, 190, 50, 0.4);
+}
+
+/* 오른쪽 섹션 - 라이트 배경 */
+.experiences-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 6rem;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+}
+
+.experiences-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(234, 190, 50, 0.03));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 통계 카드 그리드 - 세로 일렬 배치 */
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+  justify-content: space-between;
+}
+
+.stat-card {
+  border: 2px solid #e0e0e0;
+  border-left: 4px solid transparent;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  z-index: 2;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(234, 190, 50, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #EABE32, #D4A82D);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover::before {
+  transform: scaleY(1);
+}
+
+.stat-card:hover {
+  border-color: #EABE32;
+  border-left-color: #EABE32;
+  box-shadow: 0 12px 40px rgba(234, 190, 50, 0.3), 0 4px 12px rgba(234, 190, 50, 0.15);
+  transform: translateY(-6px) translateX(4px);
+}
+
+.stat-card:hover::after {
+  opacity: 1;
+}
+
+.stat-number {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #EABE32, #D4A82D, #EABE32);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0;
+  margin-right: 2rem;
+  line-height: 1;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  animation: countUp 0.6s ease-out, gradientShift 3s ease infinite;
+}
+
+.stat-number::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  width: 8px;
+  height: 8px;
+  background: #EABE32;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(234, 190, 50, 0.6);
+}
+
+.stat-number::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #EABE32, #D4A82D);
+  transition: width 0.3s ease;
+}
+
+.stat-card:hover .stat-number::after {
+  width: 100%;
+}
+
+.stat-card:hover .stat-number::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stat-label {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  color: #251E1C;
+  margin-bottom: 0;
+  letter-spacing: 0.3px;
+  text-align: left;
+  line-height: 1.4;
+  white-space: pre-line;
+  flex: 1;
+  position: relative;
+  padding-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+.stat-label::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #EABE32;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  font-weight: 700;
+}
+
+.stat-card:hover .stat-label {
+  color: #251E1C;
+  padding-left: 1.5rem;
+}
+
+.stat-card:hover .stat-label::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.stat-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #EABE32, rgba(234, 190, 50, 0.3));
+  margin: 0 0 0 auto;
+  border-radius: 2px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.stat-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid #EABE32;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-line {
+  width: 80px;
+  background: linear-gradient(90deg, #EABE32, #D4A82D);
+}
+
+.stat-card:hover .stat-line::after {
+  opacity: 1;
+  right: -12px;
+}
+
+.stat-icon {
+  display: none;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .experiences-split {
+    grid-template-columns: 1fr;
+  }
+  
+  .experiences-left {
+    padding: 4rem 3rem;
+    min-height: auto;
+  }
+  
+  .experiences-right {
+    padding: 4rem 3rem;
+    min-height: auto;
+  }
+  
+  .stats-grid {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 768px) {
   .achievements {
     scroll-margin-top: 60px;
-    padding-top: 0; /* 모바일에서 상단 패딩 제거 - Hero처럼 딱 붙게 */
-  }
-}
-
-/* LSK 스타일의 Experiences 섹션 */
-.experiences-section {
-  position: relative;
-  height: 50vh;
-  min-height: 400px;
-  width: 30%; /* 가로 크기 줄임 */
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: rgba(220, 38, 38, 0.8);
-  backdrop-filter: blur(5px);
-}
-
-.experiences-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-  z-index: 1;
-}
-
-.experiences-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(220, 38, 38, 0.6)), 
-              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23DC2626" width="1200" height="800"/><circle fill="%23ffffff" cx="200" cy="200" r="100" opacity="0.3"/><circle fill="%23ffffff" cx="800" cy="400" r="150" opacity="0.3"/><rect fill="%23ffffff" x="400" y="300" width="200" height="100" rx="10" opacity="0.3"/></svg>');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.experiences-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.experiences-text {
-  color: white;
-  max-width: 600px;
-}
-
-.experiences-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
-  color: white;
-  opacity: 0.9;
-}
-
-.experiences-description {
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 2rem;
-  word-break: keep-all;
-}
-
-.view-more-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-
-.view-more-link:hover {
-  opacity: 1;
-}
-
-/* 통계 카드 섹션 */
-.stats-section {
-  background: transparent;
-  height: 50vh;
-  min-height: 400px;
-  width: 70%; /* 가로 크기 증가 */
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-
-.stats-container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.5rem;
-  width: 100%;
-  height: 100%;
-  align-items: stretch;
-}
-
-.stat-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  backdrop-filter: blur(10px);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
-
-.stat-card .stat-number {
-  height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.5rem;
-}
-
-
-.stat-card:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  border-color: rgba(255, 0, 0, 0.5);
-}
-
-.stat-icon {
-  display: none; /* 아이콘 영역 완전히 숨김 */
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #FF0000;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.stat-label {
-  font-size: 1rem; /* 폰트 크기 조정 */
-  font-weight: 700; /* 폰트 굵기 증가 */
-  color: white;
-  margin-bottom: 1rem;
-  letter-spacing: 0.3px; /* 자간 조정 */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 강화 */
-  white-space: nowrap; /* 줄바꿈 방지 */
-  text-align: center;
-  line-height: 1.2;
-  height: 2.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* 넘치는 텍스트 숨김 */
-  text-overflow: ellipsis; /* 넘치는 텍스트에 ... 표시 */
-}
-
-.stat-line {
-  width: 40px;
-  height: 2px;
-  background: #FF0000;
-  margin: 0 auto;
-  border-radius: 1px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-
-/* 반응형 디자인 */
-@media (max-width: 1200px) {
-  .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
   }
   
-  .stat-card:nth-child(4),
-  .stat-card:nth-child(5) {
-    grid-column: span 1;
+  .experiences-left {
+    padding: 3rem 2rem;
   }
-}
-
-@media (max-width: 768px) {
-  /* 모바일에서 전체 레이아웃을 세로로 변경 */
-  .achievements {
-    display: flex;
+  
+  .experiences-right {
+    padding: 3rem 2rem;
+  }
+  
+  .stats-grid {
     flex-direction: column;
-  }
-  
-  .experiences-section {
-    width: 100%;
-    height: auto;
-    min-height: 350px; /* 높이 증가 */
-    order: 1; /* 빨간색 EXPERIENCES 섹션을 위로 */
-    margin-top: 0; /* 상단 마진 제거하여 위 섹션과 완전히 붙게 */
-  }
-  
-  .experiences-content {
-    padding: 2rem 1rem 2rem 1rem; /* 상단 패딩을 위 섹션과 일치 */
-  }
-  
-  .experiences-description {
-    font-size: 1.6rem;
-    line-height: 1.4;
-  }
-  
-  .stats-section {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    order: 2; /* 카드들을 아래로 */
-  }
-  
-  .stats-container {
-    padding: 2rem 1rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr; /* 세로로 일렬 배치 */
-    gap: 1.5rem;
-    height: auto;
-    width: 100%;
-  }
-  
-  .stat-card {
-    width: 100%;
-    padding: 2rem 1.5rem;
-    min-height: 140px;
-    display: flex;
-    flex-direction: column; /* 세로 배치로 복원 */
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin: 0;
-  }
-  
-  .stat-card .stat-number {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0;
-    min-width: auto;
-    font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .stat-card .stat-label {
-    font-size: 1.1rem;
-    height: auto;
-    line-height: 1.4;
-    flex: none;
-    text-align: center;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    white-space: normal;
-  }
-  
-  .stat-card .stat-line {
-    display: block;
-    width: 60px;
-    margin-top: 0.5rem;
-  }
-  
-}
-
-@media (max-width: 480px) {
-  .experiences-section {
-    width: 100%;
-    height: auto;
-    min-height: 300px; /* 높이 증가 */
-    order: 1; /* 빨간색 EXPERIENCES 섹션을 위로 */
-    margin-top: 0; /* 상단 마진 제거하여 위 섹션과 완전히 붙게 */
-  }
-  
-  .experiences-description {
-    font-size: 1.4rem;
-    line-height: 1.3;
-  }
-  
-  .stats-section {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    order: 2; /* 카드들을 아래로 */
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr; /* 세로로 일렬 배치 */
     gap: 1.2rem;
-    height: auto;
-    width: 100%;
   }
   
   .stat-card {
-    width: 100%;
-    padding: 1.8rem 1.2rem;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    padding: 1.8rem 1.5rem;
+    flex-direction: row;
   }
   
   .stat-number {
-    font-size: 3rem;
-    margin-bottom: 0.4rem;
-    margin-right: 0;
-    min-width: auto;
-    font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-right: 1.5rem;
   }
   
   .stat-label {
-    font-size: 1rem;
-    height: auto;
-    line-height: 1.3;
-    flex: none;
-    text-align: center;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    white-space: normal;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .experiences-left {
+    padding: 2.5rem 1.5rem;
   }
   
+  .experiences-right {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .stat-card {
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.95rem;
+  }
 }
 
 /* 애니메이션 효과 */
@@ -393,6 +454,15 @@
   }
 }
 
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .stat-number {
-  animation: countUp 0.6s ease-out;
+  animation: countUp 0.6s ease-out, gradientShift 3s ease infinite;
 }

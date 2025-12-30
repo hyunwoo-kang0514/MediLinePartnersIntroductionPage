@@ -34,9 +34,15 @@ body {
 }
 
 main {
-  padding-top: 80px; /* 헤더 높이만큼 패딩 */
+  padding-top: 0;
   width: 100%;
   flex: 1;
+}
+
+/* Hero 섹션은 헤더 바로 아래에 위치 */
+#home {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* 각 섹션이 화면 전체 높이를 차지하도록 설정 */
@@ -46,7 +52,15 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hero와 AboutUs 섹션은 여백 없음 */
+#home,
+#about {
+  padding: 0;
+  margin: 0;
 }
 
 /* 스크롤바 스타일링 */
@@ -59,12 +73,12 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: #EABE32;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #CC0000;
+  background: #D4A82D;
 }
 
 /* 부드러운 스크롤 */
@@ -75,7 +89,7 @@ html {
 
 /* 포커스 스타일 */
 *:focus {
-  outline: 2px solid #FF0000;
+  outline: 2px solid #EABE32;
   outline-offset: 2px;
 }
 
@@ -118,7 +132,14 @@ ul, ol {
   }
   
   section {
-    padding: 1rem 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #home,
+  #about {
+    padding: 0;
+    margin: 0;
   }
 }
 

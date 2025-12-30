@@ -5,11 +5,29 @@ import './Services.css'
 
 const Services = ({ language }) => {
   const [activeTab, setActiveTab] = useState('ra')
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0)
   
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+  
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId)
+    setActiveServiceIndex(0) // 탭 변경 시 첫 번째 서비스로 리셋
+  }
+  
+  const handlePrevious = () => {
+    if (content.services[activeTab] && activeServiceIndex > 0) {
+      setActiveServiceIndex(activeServiceIndex - 1)
+    }
+  }
+  
+  const handleNext = () => {
+    if (content.services[activeTab] && activeServiceIndex < content.services[activeTab].length - 1) {
+      setActiveServiceIndex(activeServiceIndex + 1)
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,61 +66,71 @@ const Services = ({ language }) => {
           services: {
             ra: [
               {
-                title: "1. RA Consulting",
+                title: "1. Consulting",
                 items: [
-                  "Pharmaceutical/Medical Device Licensing Strategy Consulting",
-                  "Pharmaceutical/Medical Device GAP Analysis",
-                  "Pharmaceutical/Medical Device Feasibility and Market Research Consulting",
-                  "MFDS Pre-consultation Support Consulting",
-                  "Domestic Regulatory Intelligence Consulting for International Clients"
+                  "Step-by-step licensing strategy (Pharmaceuticals, medical devices, combination products, health functional foods, quasi-drugs)",
+                  "Establishment of step-by-step clinical strategy",
+                  "GAP analysis and feasibility review",
+                  "Preparation for MFDS pre-consultation (meeting, civil petition inquiry)",
+                  "Domestic Regulatory Intelligence service for overseas customers"
                 ]
               },
               {
-                title: "2. RA Writing",
+                title: "2. Document Preparation",
                 items: [
-                  "Common Technical Document (CTD) Development",
-                  "Summary Technical Documentation (STED) Development",
-                  "Investigator's Brochure (IB) Development",
-                  "Clinical and Licensing Submission Package Writing for Pharmaceuticals/Medical Devices"
+                  "Preparation of Common Technical Document (CTD) for pharmaceuticals",
+                  "Preparation of Standardized Technical Document (STED) for medical devices",
+                  "Preparation of Investigator's Brochure (IB)",
+                  "Preparation of clinical submission package",
+                  "Preparation of approval submission package",
+                  "Preparation of raw material drug submission package",
+                  "Development and preparation of synopsis/protocol"
                 ]
               },
               {
-                title: "3. RA Submission",
+                title: "3. MFDS Submission and Liaison",
                 items: [
-                  "Drug Master File (DMF) Registration",
-                  "Investigational New Drug (IND) Application for Pharmaceuticals/Medical Devices",
-                  "Pre-IND, Pre-NDA Review for Pharmaceuticals/Medical Devices",
-                  "New Drug Application (NDA) for Pharmaceuticals/Medical Devices",
-                  "Product License Renewal",
-                  "New Medical Technology Assessment (HIRA)",
-                  "Development Stage/Rare Disease Drug Designation"
+                  "Application for Drug Master File (DMF) registration",
+                  "Application for pre-review (Pre-IND/NDA)",
+                  "Application for Investigational New Drug (IND) approval",
+                  "Application for New Drug Application (NDA)",
+                  "Application for product renewal",
+                  "Application for development stage/orphan drug designation",
+                  "Import business license for pharmaceuticals/medical devices"
                 ]
               },
               {
                 title: "4. GMP Compliance Certification",
                 items: [
-                  "Pharmaceutical/Medical Device GMP (KGMP, ISO13485)",
-                  "Domestic and International GMP Audit Support"
+                  "Pharmaceutical KGMP",
+                  "Medical device ISO13485",
+                  "Domestic and international GMP audit support"
+                ]
+              },
+              {
+                title: "5. Insurance Drug Pricing",
+                items: [
+                  "Pharmaceutical insurance drug pricing",
+                  "New medical technology assessment (HIRA)"
                 ]
               }
             ],
             pv: [
               {
-                title: "1. PV System Set-up",
+                title: "1. Consulting",
                 items: [
                   "PV System Establishment",
                   "PV SOP Development",
-                  "PV Education",
-                  "PV Consulting",
-                  "PV Audit and Inspection Response"
+                  "PV Training",
+                  "Response to Regulatory Authority Audit and Inspection"
                 ]
               },
               {
-                title: "2. PV Writing",
+                title: "2. Document Preparation",
                 items: [
-                  "Development Safety Update Report (DSUR)",
+                  "Latest Safety Information Report (DSUR)",
                   "Risk Management Plan (RMP) and Implementation Result Report",
-                  "Periodic Safety Update Report (PSUR)",
+                  "Latest Safety Information Report (PSUR)",
                   "Periodic Benefit-Risk Evaluation Report (PBRER)",
                   "Safety Report for Product Renewal"
                 ]
@@ -110,20 +138,20 @@ const Services = ({ language }) => {
               {
                 title: "3. Safety Information Processing and Management",
                 items: [
-                  "Individual Case Safety Report (ICSR) Processing (by source, by country)",
-                  "Domestic Adverse Event Expedited/Periodic Reporting",
-                  "Foreign Serious Adverse Drug Reactions",
-                  "SUSAR Expedited Reporting",
-                  "Safety DB Setup and Storage Management",
-                  "SMP/PVA Review and Query Evaluation",
-                  "Signal Information Management"
+                  "Individual Case Safety Report (ICSR) Processing (by source, by country of occurrence)",
+                  "Expedited/Periodic Reporting of Domestic Adverse Events",
+                  "Serious Adverse Drug Reactions Abroad",
+                  "Expedited SUSAR Reporting",
+                  "Safety DB Set up, Storage Management",
+                  "SMP/PVA, Review, Query Evaluation",
+                  "Signal Management"
                 ]
               },
               {
                 title: "4. Safety Information Collection",
                 items: [
                   "Periodic Literature Search",
-                  "Regulatory Authority Websites"
+                  "Regulatory Authority Sites"
                 ]
               }
             ],
@@ -175,82 +203,92 @@ const Services = ({ language }) => {
           services: {
             ra: [
               {
-                title: "1. RA 咨询",
+                title: "1. 咨询",
                 items: [
-                  "药品/医疗器械许可战略咨询",
-                  "药品/医疗器械GAP分析",
-                  "药品/医疗器械可行性与市场调研咨询",
-                  "MFDS事前咨询支持",
-                  "面向海外客户的韩国法规情报咨询"
+                  "分阶段许可战略（药品、医疗器械、融合复合产品、健康功能食品、准药品）",
+                  "分阶段临床战略建立",
+                  "GAP分析及可行性审查",
+                  "食药处事前咨询（会议、民愿质询）准备",
+                  "面向海外客户的国内法规情报服务"
                 ]
               },
               {
-                title: "2. RA 文档撰写",
+                title: "2. 文档撰写",
                 items: [
-                  "CTD（共同技术文件）开发",
-                  "STED（医疗器械汇总技术文档）开发",
-                  "研究者手册（IB）编写",
-                  "药品/医疗器械临床与许可提交资料撰写"
+                  "药品国际共通技术文件(CTD)撰写",
+                  "医疗器械国际标准化技术文件(STED)撰写",
+                  "临床试验研究者资料集(IB)撰写",
+                  "临床提交包撰写",
+                  "许可提交包撰写",
+                  "原料药品提交包撰写",
+                  "概要/方案开发及撰写"
                 ]
               },
               {
-                title: "3. RA 申报",
+                title: "3. 食药处提交及代管",
                 items: [
-                  "DMF（药品主文件）登记",
-                  "药品/医疗器械IND申请",
-                  "预IND、预NDA事前审查",
-                  "药品/医疗器械NDA/申报",
-                  "品种续展",
-                  "新医疗技术评价（HIRA）",
-                  "开发阶段/罕见病用药指定"
+                  "原料药品登记申请(DMF)",
+                  "事前审查申请(Pre-IND/NDA)",
+                  "临床试验计划批准申请(IND)",
+                  "品种许可申请(NDA)",
+                  "品种更新申请",
+                  "开发阶段/罕见病药品指定申请",
+                  "药品/医疗器械进口业许可"
                 ]
               },
               {
-                title: "4. GMP 合规认证",
+                title: "4. GMP合规认证",
                 items: [
-                  "药品/医疗器械GMP（KGMP, ISO13485）",
-                  "国内外GMP现场审查支持"
+                  "药品KGMP",
+                  "医疗器械ISO13485",
+                  "国内外GMP实地审查支持"
+                ]
+              },
+              {
+                title: "5. 保险药价",
+                items: [
+                  "药品保险药价",
+                  "新医疗技术评价(HIRA)"
                 ]
               }
             ],
             pv: [
               {
-                title: "1. PV 系统建立",
+                title: "1. 咨询",
                 items: [
                   "PV系统构建",
                   "PV SOP制定",
                   "PV培训",
-                  "PV咨询",
-                  "PV审计及检查应对"
+                  "监管机构审计及检查应对"
                 ]
               },
               {
-                title: "2. PV 文档撰写",
+                title: "2. 文档撰写",
                 items: [
-                  "开发安全性更新报告（DSUR）",
-                  "风险管理计划（RMP）及执行结果报告",
-                  "定期安全性更新报告（PSUR）",
-                  "定期效益-风险评估报告（PBRER）",
-                  "品种续展用安全性报告"
+                  "最新安全性信息报告(DSUR)",
+                  "风险管理计划(RMP)及执行结果报告",
+                  "最新安全性信息报告(PSUR)",
+                  "定期效益-风险评估报告(PBRER)",
+                  "品种更新用安全性报告"
                 ]
               },
               {
-                title: "3. 安全性信息处理与管理",
+                title: "3. 安全性信息处理、管理",
                 items: [
-                  "个例安全性报告（ICSR）处理（按来源/发生国家）",
-                  "国内不良事件速报/定期报告",
-                  "海外严重不良反应",
+                  "个例安全性信息报告(ICSR)处理（按来源、发生国家）",
+                  "国内异常事例速报/定期报告",
+                  "海外重大药物异常反应",
                   "SUSAR速报",
-                  "安全数据库建立与维护",
-                  "SMP/PVA审查与质询处理",
-                  "信号信息管理"
+                  "Safety DB Set up、保管管理",
+                  "SMP/PVA、审查、查询评估",
+                  "线索信息管理"
                 ]
               },
               {
                 title: "4. 安全性信息收集",
                 items: [
                   "定期文献检索",
-                  "监管机构网站监测"
+                  "监管机构网站"
                 ]
               }
             ],
@@ -302,57 +340,67 @@ const Services = ({ language }) => {
           services: {
             ra: [
               {
-                title: "1. RA Consulting",
+                title: "1. 컨설팅",
                 items: [
-                  "의약품/의료기기 인허가 전략 컨설팅",
-                  "의약품/의료기기 GAP 분석",
-                  "의약품/의료기기 타당성, 시장 조사 컨설팅",
-                  "식약처 사전 상담 지원 컨설팅",
-                  "해외 고객을 위한 국내 Regulatory Intelligence 컨설팅"
+                  "단계별 인허가 전략 (의약품, 의료기기, 융복합제품, 건강기능식품, 의약외품)",
+                  "단계별 임상 전략 수립",
+                  "GAP 분석 및 타당성 검토",
+                  "식약처 사전상담(미팅, 민원질의) 준비",
+                  "해외 고객을 위한 국내 Regulatory Intelligence 서비스"
                 ]
               },
               {
-                title: "2. RA Writing",
+                title: "2. 문서 작성",
                 items: [
-                  "의약품국제공통기술문서(CTD) 개발",
-                  "의료기기국제표준화기술문서(STED) 개발",
-                  "임상시험자자료집(IB) 개발",
-                  "의약품/의료기기 임상 및 허가 제출 패키지 작성"
+                  "의약품 국제공통기술문서(CTD) 작성",
+                  "의료기기 국제표준화기술문서(STED) 작성",
+                  "임상시험자자료집(IB) 작성",
+                  "임상 제출 패키지 작성",
+                  "허가 제출 패키지 작성",
+                  "원료의약품 제출 패키지 작성",
+                  "시놉시스/프로토콜 개발 및 작성"
                 ]
               },
               {
-                title: "3. RA Submission",
+                title: "3. 식약처 제출 및 대관",
                 items: [
-                  "원료의약품 등록(DMF)",
-                  "의약품/의료기기 임상시험계획승인(IND)",
-                  "의약품/의료기기 사전검토(Pre-IND, Pre-NDA)",
-                  "의약품/의료기기 품목허가/신고(NDA)",
-                  "의약품/의료기기 품목갱신",
-                  "신의료기술평가(HIRA)",
-                  "개발단계/희귀의약품 지정"
+                  "원료의약품 등록 신청(DMF)",
+                  "사전검토 신청(Pre-IND/NDA)",
+                  "임상시험계획승인 신청(IND)",
+                  "품목허가 신청(NDA)",
+                  "품목갱신 신청",
+                  "개발단계/희귀의약품 지정 신청",
+                  "의약품/의료기기 수입업허가"
                 ]
               },
               {
                 title: "4. GMP 적합인증",
                 items: [
-                  "의약품/의료기기 GMP(KGMP, ISO13485)",
+                  "의약품 KGMP",
+                  "의료기기 ISO13485",
                   "국내외 GMP 실사지원"
+                ]
+              },
+              {
+                title: "5. 보험약가",
+                items: [
+                  "의약품 보험약가",
+                  "신의료기술평가(HIRA)"
                 ]
               }
             ],
             pv: [
               {
-                title: "1. PV System Set-up",
+                title: "1. 컨설팅",
                 items: [
                   "PV 시스템 구축",
                   "PV SOP 개발",
                   "PV 교육",
-                  "PV Consulting",
-                  "PV Audit 및 Inspection 대응"
+                  "규제기관 Audit 및 Inspection 대응"
                 ]
               },
               {
-                title: "2. PV Writing",
+                title: "2. 문서 작성",
                 items: [
                   "최신 안전성정보 보고서(DSUR)",
                   "위해성관리계획(RMP) 및 이행결과보고서",
@@ -364,7 +412,7 @@ const Services = ({ language }) => {
               {
                 title: "3. 안전성 정보 처리, 관리",
                 items: [
-                  "개별안전성정보보고서(ICSR)처리 (출처별, 발생 국가별)",
+                  "개별 안전성 정보 보고서(ICSR)처리 (출처별, 발생 국가별)",
                   "국내 이상사례 신속보고/정기보고",
                   "해외 중대한 약물이상반응",
                   "SUSAR 신속보고",
@@ -424,53 +472,144 @@ const Services = ({ language }) => {
 
   return (
     <section id="services" className="services">
-      <motion.div 
-        ref={ref}
-        className="services-container"
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        <motion.div className="section-header" variants={itemVariants}>
-          <div className="service-badge">서비스</div>
-          <h2>OUR SERVICES</h2>
-          <p>{content.subtitle}</p>
-        </motion.div>
-        
-        {/* 탭 네비게이션 */}
-        <motion.div className="services-tabs" variants={itemVariants}>
-          {content.tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
+      <div className="services-split">
+        {/* 왼쪽 섹션 - 다크 배경 */}
+        <motion.div 
+          ref={ref}
+          className="services-left"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          <motion.div className="services-content-wrapper" variants={itemVariants}>
+            <motion.div className="service-badge" variants={itemVariants}>
+              {language === 'eng' ? 'Our Services' : 
+               language === 'chn' ? '我们的服务' : '서비스'}
+            </motion.div>
+            <motion.h2 className="services-title" variants={itemVariants}>
+              {language === 'eng' ? 'OUR SERVICES' : 
+               language === 'chn' ? '我们的服务' : 'OUR SERVICES'}
+            </motion.h2>
+            <div className="services-divider"></div>
+            <motion.p className="services-description" variants={itemVariants}>
+              {content.subtitle}
+            </motion.p>
+            
+            {/* 탭 네비게이션 */}
+            <motion.div className="services-tabs" variants={itemVariants}>
+              {content.tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+                  onClick={() => handleTabChange(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </motion.div>
+            
+            {/* 서브 카테고리 버튼들 */}
+            {content.services[activeTab] && content.services[activeTab].length > 0 && (
+              <motion.div 
+                className="service-subcategories"
+                variants={itemVariants}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {content.services[activeTab].map((service, index) => {
+                  // service.title에서 숫자 접두사 제거 (예: "1. RA Consulting" -> "RA Consulting")
+                  const cleanTitle = service.title.replace(/^\d+\.\s*/, '')
+                  return (
+                    <button
+                      key={index}
+                      className={`subcategory-button ${activeServiceIndex === index ? 'active' : ''}`}
+                      onClick={() => setActiveServiceIndex(index)}
+                    >
+                      {index + 1}. {cleanTitle}
+                    </button>
+                  )
+                })}
+              </motion.div>
+            )}
+          </motion.div>
         </motion.div>
 
-        {/* 서비스 콘텐츠 */}
-        <motion.div className="services-content" variants={itemVariants}>
-          {content.services[activeTab].map((service, index) => (
-            <motion.div 
-              key={index} 
-              className="service-section"
-              variants={itemVariants}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <h3 className="service-title">{service.title}</h3>
-              <ul className="service-items">
-                {service.items.map((item, idx) => (
-                  <li key={idx} className="service-item">{item}</li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+        {/* 오른쪽 섹션 - 라이트 배경 + 서비스 카드 */}
+        <div className="services-right">
+          {content.services[activeTab] && content.services[activeTab][activeServiceIndex] && (
+            <>
+              <motion.div 
+                className="services-content"
+                key={`${activeTab}-${activeServiceIndex}`}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className="service-card"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                >
+                  <div className="service-card-header">
+                    <h3 className="service-title">
+                      {content.services[activeTab][activeServiceIndex].title.replace(/^\d+\.\s*/, '')}
+                    </h3>
+                    <div className="service-card-badge">
+                      {activeServiceIndex + 1} / {content.services[activeTab].length}
+                    </div>
+                  </div>
+                  <ul className="service-items">
+                    {content.services[activeTab][activeServiceIndex].items.map((item, idx) => (
+                      <motion.li 
+                        key={idx} 
+                        className="service-item"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.2 + idx * 0.05 }}
+                      >
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </motion.div>
+              
+              {/* 네비게이션 버튼 */}
+              <div className="service-navigation">
+                <button 
+                  className="nav-button prev-button"
+                  onClick={handlePrevious}
+                  disabled={activeServiceIndex === 0}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                  <span>
+                    {language === 'eng' ? 'Previous' : 
+                     language === 'chn' ? '上一页' : '이전'}
+                  </span>
+                </button>
+                <button 
+                  className="nav-button next-button"
+                  onClick={handleNext}
+                  disabled={activeServiceIndex === content.services[activeTab].length - 1}
+                >
+                  <span>
+                    {language === 'eng' ? 'Next' : 
+                     language === 'chn' ? '下一页' : '다음'}
+                  </span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
     </section>
   )
 }

@@ -5,6 +5,7 @@ import raDrugExperiences from '../../images/RA_Drug_Experiences.png';
 import raDeviceExperiences from '../../images/RA_Device_Experiences.png';
 import pvProjectExperiences from '../../images/PV_Project_Experiences.png';
 import iccServiceExperiences from '../../images/ICC_Service_Experiences.png';
+import achievementBackground from '../../images/Acheivement_background_image.png';
 import './Achievements.css';
 
 const Achievements = ({ language }) => {
@@ -136,19 +137,24 @@ const Achievements = ({ language }) => {
 
   return (
     <section className="achievements" ref={ref}>
-      {/* LSK 스타일의 Experiences 섹션 */}
-      <div className="experiences-section">
-        <div className="experiences-content">
-          <motion.div 
-            className="experiences-text"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
+      <div className="experiences-split">
+        {/* 왼쪽 섹션 - 다크 배경 */}
+        <motion.div 
+          className="experiences-left"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div className="experiences-content-wrapper" variants={itemVariants}>
+            <motion.div className="experiences-badge" variants={itemVariants}>
+              {language === 'eng' ? 'Our Achievements' : 
+               language === 'chn' ? '我们的成就' : '주요 성과'}
+            </motion.div>
             <motion.h2 className="experiences-title" variants={itemVariants}>
               {language === 'eng' ? 'EXPERIENCES' : 
                language === 'chn' ? '经验' : 'EXPERIENCES'}
             </motion.h2>
+            <div className="experiences-divider"></div>
             <motion.p className="experiences-description" variants={itemVariants}>
               {language === 'eng' 
                 ? "We provide high-level, efficient clinical trial services that meet global standards."
@@ -162,68 +168,57 @@ const Achievements = ({ language }) => {
                language === 'chn' ? '查看更多 →' : 'VIEW MORE →'}
             </motion.a>
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
 
-      {/* 통계 카드 섹션 */}
-      <div className="stats-section">
-        <div className="stats-container">
+        {/* 오른쪽 섹션 - 라이트 배경 + 통계 카드 */}
+        <div 
+          className="experiences-right"
+          style={{
+            background: 'linear-gradient(135deg, #ffffff 0%, #fafafa 100%)'
+          }}
+        >
           <motion.div 
             className="stats-grid"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            {content.achievements.map((achievement, index) => (
-              <motion.div 
-                key={achievement.key}
-                className="stat-card"
-                style={index === 0 ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${clientsExperiencesPage})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                } : index === 1 ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${raDrugExperiences})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                } : index === 2 ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${raDeviceExperiences})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                } : index === 3 ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${pvProjectExperiences})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                } : index === 4 ? {
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${iccServiceExperiences})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                } : {}}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="stat-icon">
-                  {/* 아이콘 제거 - 텍스트에 집중 */}
-                </div>
-                <div className="stat-number">
-                  {counts[achievement.key]}+
-                </div>
-                <div className="stat-label">
-                  {achievement.label}
-                </div>
-                <div className="stat-line"></div>
-              </motion.div>
-            ))}
+            {content.achievements.map((achievement, index) => {
+              const backgroundImages = [
+                clientsExperiencesPage,
+                raDrugExperiences,
+                raDeviceExperiences,
+                pvProjectExperiences,
+                iccServiceExperiences
+              ];
+              
+              return (
+                <motion.div 
+                  key={achievement.key}
+                  className="stat-card"
+                  style={{
+                    backgroundImage: `linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.65) 100%), url(${backgroundImages[index]})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="stat-number">
+                    {counts[achievement.key]}+
+                  </div>
+                  <div className="stat-label">
+                    {achievement.label}
+                  </div>
+                  <div className="stat-line"></div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
-
     </section>
   );
 };

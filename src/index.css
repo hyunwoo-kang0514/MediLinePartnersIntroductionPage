@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nanum Square', 'Goyang Deokyang', 'SB Aggro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #fff;
@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   font-weight: 600;
   line-height: 1.2;
+  font-family: 'SB Aggro', 'Nanum Square', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 p {

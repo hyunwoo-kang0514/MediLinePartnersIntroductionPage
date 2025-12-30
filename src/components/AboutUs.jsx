@@ -47,7 +47,7 @@ const AboutUs = ({ language }) => {
           personnelSection: {
             title: "Message from CEO",
             description: "We promise to be a partner that walks with you from the early development stages of your pharmaceuticals and medical devices through licensing and safety management.",
-            details: `Mediline Partners provides <strong>professional consulting services</strong> that strictly comply with domestic regulations as well as <strong>ICH and other international guidelines</strong>, based on the <strong>experience and know-how</strong> accumulated over the past <strong>25 years</strong> by working with multinational pharmaceutical companies, bio-ventures, and domestic and international medical device companies.\n\nGoing forward, we will continue to be a <strong>reliable licensing expert partner</strong> and work together for your <strong>successful market entry</strong> and <strong>sustainable growth</strong>.\n\n<strong style="color: #333; font-weight: 700;">Thank you.<br>Mediline Partners Co., Ltd.</strong>`
+            details: `Mediline Partners provides <strong>professional consulting services</strong> that strictly comply with domestic regulations as well as <strong>ICH and other international guidelines</strong>, based on the <strong>experience and know-how</strong> accumulated over the past <strong>25 years</strong> by working with multinational pharmaceutical companies, bio-ventures, and domestic and international medical device companies.\n\nGoing forward, we will continue to be a <strong>reliable licensing expert partner</strong> and work together for your <strong>successful market entry</strong> and <strong>sustainable growth</strong>.\n\n<strong style="color: #ffffff; font-weight: 700;">Thank you.<br>Mediline Partners Co., Ltd.</strong>`
           }
         };
       case 'chn':
@@ -55,14 +55,14 @@ const AboutUs = ({ language }) => {
           subtitle: "公司介绍",
           title: "ABOUT COMPANY",
           companySection: {
-            title: "公司介绍",
+            title: "企业概况",
             description: "Mediline Partners Co., Ltd.是一家提供药品/医疗器械许可和药物警戒服务的专业咨询公司。",
             details: `我们不是简单的外包供应商，而是通过相互关联整个开发周期的程序来提供综合解决方案。作为领导研发的客户公司的另一个团队，我们支持从<strong>研发战略规划、非临床、临床、GMP、IND/NDA到PV</strong>的整个研发过程的综合解决方案。通过实用和战略性的方法，我们为客户实现优化的市场进入<strong>Real Total Package Service</strong>。`
           },
           personnelSection: {
             title: "CEO致辞",
             description: "我们承诺成为从贵公司药品和医疗器械初期开发阶段到许可，以及在此过程中的安全管理全程陪伴的合作伙伴。",
-            details: `美迪兰合作伙伴基于过去<strong>25年间</strong>与跨国制药公司、生物风险投资、国内外医疗器械公司合作积累的<strong>经验和专业知识</strong>，严格遵守国内法规以及<strong>ICH等国际指导原则</strong>，提供<strong>专业咨询服务</strong>。\n\n今后也将作为<strong>可信赖的许可专业合作伙伴</strong>，与贵公司的<strong>成功市场进入</strong>和<strong>可持续发展</strong>共同前行。\n\n<strong style="color: #333; font-weight: 700;">谢谢。<br>美迪兰合作伙伴有限公司</strong>`
+            details: `美迪兰合作伙伴基于过去<strong>25年间</strong>与跨国制药公司、生物风险投资、国内外医疗器械公司合作积累的<strong>经验和专业知识</strong>，严格遵守国内法规以及<strong>ICH等国际指导原则</strong>，提供<strong>专业咨询服务</strong>。\n\n今后也将作为<strong>可信赖的许可专业合作伙伴</strong>，与贵公司的<strong>成功市场进入</strong>和<strong>可持续发展</strong>共同前行。\n\n<strong style="color: #ffffff; font-weight: 700;">谢谢。<br>美迪兰合作伙伴有限公司</strong>`
           }
         };
       default: // kor
@@ -70,14 +70,14 @@ const AboutUs = ({ language }) => {
           subtitle: "회사소개",
           title: "ABOUT COMPANY",
           companySection: {
-            title: "회사소개",
+            title: "기업 개요",
             description: "(주)메디라인파트너스는 의약품/의료기기 인허가 및 약물감시 서비스를 제공하는 전문 컨설팅 기업입니다.",
             details: `단순한 아웃소싱 벤더가 아닌, 개발 전주기의 절차를 상호 연계하여 통합 해법을 제시합니다. 연구개발을 이끌어가는 고객사의 또 다른 팀으로서 <strong>R&D 전략 기획 비임상, 임상, GMP, IND/NDA, PV까지 R&D 전 과정에 걸친 통합 솔루션</strong>을 지원합니다. 실용적이고 전략적인 접근으로, 의뢰사에 최적화된 시장진입을 위한 <strong>Real Total Package Service</strong>를 실현합니다.`
           },
           personnelSection: {
-            title: "인사말",
+            title: "CEO 인사말",
             description: "귀사의 의약품 및 의료기기의 초기 개발 단계에서부터 허가, 그리고 그 과정에서 안전관리까지 함께 걷는 파트너가 될 것을 약속 드립니다.",
-            details: `메디라인파트너스는 지난 <strong>25년간</strong> 다국적 제약사, 바이오벤처, 국내외 의료기기 회사들과 함께하며 쌓아온 <strong>경험과 노하우</strong>를 바탕으로, 국내 규정은 물론 <strong>ICH 등 국제 가이드라인</strong>을 충실히 준수하는 <strong>전문 컨설팅 서비스</strong>를 제공합니다.\n\n앞으로도 <strong>신뢰할 수 있는 인허가 전문 파트너</strong>로서, 귀사의 <strong>성공적인 시장 진입</strong>과 <strong>지속 가능한 성장</strong>에 함께하겠습니다.\n\n<strong style="color: #333; font-weight: 700;">감사합니다.<br>(주)메디라인파트너스 올림</strong>`
+            details: `메디라인파트너스는 지난 <strong>25년간</strong> 다국적 제약사, 바이오벤처, 국내외 의료기기 회사들과 함께하며 쌓아온 <strong>경험과 노하우</strong>를 바탕으로, 국내 규정은 물론 <strong>ICH 등 국제 가이드라인</strong>을 충실히 준수하는 <strong>전문 컨설팅 서비스</strong>를 제공합니다.\n\n앞으로도 <strong>신뢰할 수 있는 인허가 전문 파트너</strong>로서, 귀사의 <strong>성공적인 시장 진입</strong>과 <strong>지속 가능한 성장</strong>에 함께하겠습니다.\n\n<strong style="color: #ffffff; font-weight: 700;">감사합니다.<br>(주)메디라인파트너스 올림</strong>`
           }
         };
     }
@@ -87,36 +87,42 @@ const AboutUs = ({ language }) => {
 
   return (
     <section id="about" className="about-company">
-      <motion.div
-        ref={ref}
-        className="about-company-container"
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        <motion.div className="about-company-header" variants={itemVariants}>
-          <div className="header-subtitle">{content.subtitle}</div>
-          <h2 className="about-company-title">{content.title}</h2>
-        </motion.div>
-
-        <div className="about-company-content">
+      <div className="about-company-split">
+        {/* 왼쪽 섹션 - 라이트 배경 */}
+        <motion.div
+          ref={ref}
+          className="about-company-left"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
           <motion.div className="company-section" variants={itemVariants}>
             <div className="section-badge">{content.companySection.title}</div>
+            <div className="section-divider"></div>
             <div className="section-content">
               <p className="section-description">{content.companySection.description}</p>
               <p className="section-details" dangerouslySetInnerHTML={{ __html: content.companySection.details }}></p>
             </div>
           </motion.div>
+        </motion.div>
 
+        {/* 오른쪽 섹션 - 다크 배경 */}
+        <motion.div
+          className="about-company-right"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
           <motion.div className="personnel-section" variants={itemVariants}>
             <div className="section-badge">{content.personnelSection.title}</div>
+            <div className="section-divider"></div>
             <div className="section-content">
               <p className="section-description">{content.personnelSection.description}</p>
               <p className="section-details" dangerouslySetInnerHTML={{ __html: content.personnelSection.details }}></p>
             </div>
           </motion.div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
