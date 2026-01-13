@@ -5,7 +5,7 @@
   background: rgba(255, 255, 255, 0.8);
   border-radius: 25px;
   padding: 0.3rem;
-  border: 1px solid rgba(234, 190, 50, 0.1);
+  border: 1px solid rgba(253, 185, 57, 0.1);
   backdrop-filter: blur(10px);
 }
 
@@ -23,20 +23,20 @@
 }
 
 .language-btn.active {
-  background: linear-gradient(135deg, #D4A82D, #EABE32);
+  background: linear-gradient(135deg, #F9B428, #FDB939);
   color: #251E1C;
-  box-shadow: 0 2px 8px rgba(234, 190, 50, 0.2);
+  box-shadow: 0 2px 8px rgba(253, 185, 57, 0.2);
 }
 
 .language-btn:hover:not(.active) {
-  background: rgba(234, 190, 50, 0.1);
-  color: #EABE32;
+  background: rgba(253, 185, 57, 0.1);
+  color: #FDB939;
 }
 
 .language-divider {
   width: 1px;
   height: 20px;
-  background: rgba(234, 190, 50, 0.2);
+  background: rgba(253, 185, 57, 0.2);
 }
 
 @media (max-width: 768px) {

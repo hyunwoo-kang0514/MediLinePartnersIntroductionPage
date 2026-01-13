@@ -151,92 +151,84 @@ const Clients = ({ language }) => {
 
   return (
     <section id="clients" className="clients">
-      <div className="clients-split">
-        {/* 왼쪽 섹션 - 다크 배경 */}
-        <motion.div 
-          ref={ref}
-          className="clients-left"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          <motion.div className="clients-content-wrapper" variants={itemVariants}>
-            <motion.div className="clients-badge" variants={itemVariants}>
-              {content.title}
-            </motion.div>
-            <motion.h2 className="clients-title" variants={itemVariants}>
-              {content.subtitle}
-            </motion.h2>
-            <div className="clients-divider"></div>
-            <motion.p className="clients-description" variants={itemVariants}>
-              {language === 'eng' ? (
-                <>
-                  <span className="highlight">Global partners</span> trust <span className="highlight">MediLine Partners</span>
-                </>
-              ) : language === 'chn' ? (
-                <>
-                  <span className="highlight">全球合作伙伴</span>信赖<span className="highlight">MediLine Partners</span>
-                </>
-              ) : (
-                <>
-                  <span className="highlight">글로벌 파트너사</span>가 <span className="highlight">메디라인파트너스</span>를 신뢰합니다
-                </>
-              )}
-            </motion.p>
-            <motion.p className="clients-subdescription" variants={itemVariants}>
-              {language === 'eng' ? (
-                <>
-                  With expertise aligned to <span className="highlight">global standards</span>, <span className="highlight">numerous success stories</span>, and <span className="highlight">20 years of accumulated know-how</span>, we create a <span className="highlight">definitive difference</span>.
-                </>
-              ) : language === 'chn' ? (
-                <>
-                  凭借符合<span className="highlight">全球标准</span>的专业性、<span className="highlight">众多成功案例</span>和<span className="highlight">20年积累的经验</span>，我们创造<span className="highlight">显著差异</span>。
-                </>
-              ) : (
-                <>
-                  <span className="highlight">글로벌 스탠더드</span>에 맞춘 전문성, <span className="highlight">수많은 성공 사례</span>, <span className="highlight">20년간 축적된 노하우</span>로 <span className="highlight">확실한 차이</span>를 만듭니다.
-                </>
-              )}
-            </motion.p>
-          </motion.div>
+      <motion.div 
+        ref={ref}
+        className="clients-container"
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+      >
+        <motion.div className="clients-header" variants={itemVariants}>
+          <h2 className="clients-title">{content.title}</h2>
+          <h1 className="clients-subtitle">{content.subtitle}</h1>
+          <p className="clients-description question">
+            {language === 'eng' ? (
+              <>
+                <span className="highlight">Global partners</span> trust <span className="highlight">MediLine Partners</span>
+              </>
+            ) : language === 'chn' ? (
+              <>
+                <span className="highlight">全球合作伙伴</span>信赖<span className="highlight">MediLine Partners</span>
+              </>
+            ) : (
+              <>
+                <span className="highlight">글로벌 파트너사</span>가 <span className="highlight">메디라인파트너스</span>를 신뢰합니다
+              </>
+            )}
+          </p>
+          <p className="clients-description answer">
+            {language === 'eng' ? (
+              <>
+                With expertise aligned to <span className="highlight">global standards</span>, <span className="highlight">numerous success stories</span>, and <span className="highlight">20 years of accumulated know-how</span>, we create a <span className="highlight">definitive difference</span>.
+              </>
+            ) : language === 'chn' ? (
+              <>
+                凭借符合<span className="highlight">全球标准</span>的专业性、<span className="highlight">众多成功案例</span>和<span className="highlight">20年积累的经验</span>，<br />
+                我们创造<span className="highlight">显著差异</span>。
+              </>
+            ) : (
+              <>
+                <span className="highlight">글로벌 스탠더드</span>에 맞춘 전문성, <span className="highlight">수많은 성공 사례</span>, <span className="highlight">20년간 축적된 노하우</span>로<br />
+                <span className="highlight">확실한 차이</span>를 만듭니다.
+              </>
+            )}
+          </p>
         </motion.div>
 
-        {/* 오른쪽 섹션 - 라이트 배경 + 슬라이드 */}
-        <div className="clients-right">
-          <motion.div className="clients-marquee" variants={itemVariants}>
-            <div className="marquee-container">
-              <div className="marquee-track">
-                {/* 원본 카드들을 3번 반복해서 자연스러운 무한 스크롤 효과 생성 */}
-                {[...clients, ...clients, ...clients].map((client, index) => (
-                  <div
-                    key={`marquee-${index}`}
-                    className="marquee-card"
-                  >
-                    <div className="client-logo-container">
-                      <img 
-                        src={client.logo} 
-                        alt={client.name} 
-                        className="client-logo-img"
-                        onError={(e) => {
-                          e.target.style.display = 'none'
-                          e.target.nextSibling.style.display = 'flex'
-                        }}
-                      />
-                      <div className="logo-placeholder" style={{ display: 'none' }}>
-                        🏢
-                      </div>
+        {/* 마키 효과로 무한 스크롤되는 브랜드 카드들 */}
+        <motion.div className="clients-marquee" variants={itemVariants}>
+          <div className="marquee-container">
+            <div className="marquee-track">
+              {/* 원본 카드들을 3번 반복해서 자연스러운 무한 스크롤 효과 생성 */}
+              {[...clients, ...clients, ...clients].map((client, index) => (
+                <div
+                  key={`marquee-${index}`}
+                  className="marquee-card"
+                >
+                  <div className="client-logo-container">
+                    <img 
+                      src={client.logo} 
+                      alt={client.name} 
+                      className="client-logo-img"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                        e.target.nextSibling.style.display = 'flex'
+                      }}
+                    />
+                    <div className="logo-placeholder" style={{ display: 'none' }}>
+                      🏢
                     </div>
-                    <h3 className="client-name">{language === 'kor' ? client.name : (client.englishName || client.name)}</h3>
-                    <p className="client-description">{translateDescription(client.description, language)}</p>
                   </div>
-                ))}
-              </div>
+                  <h3 className="client-name">{language === 'kor' ? client.name : (client.englishName || client.name)}</h3>
+                  <p className="client-description">{translateDescription(client.description, language)}</p>
+                </div>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
 
-export default Clients 
+export default Clients

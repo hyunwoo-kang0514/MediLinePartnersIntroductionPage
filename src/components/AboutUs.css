@@ -17,7 +17,10 @@
 }
 
 .about-company-left {
-  background: #ffffff;
+  background: url('../../images/Company_Introduction_Page.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -25,6 +28,22 @@
   padding: 5rem 6rem 5rem 6rem;
   position: relative;
   align-items: flex-start;
+}
+
+.about-company-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+}
+
+.company-section {
+  position: relative;
+  z-index: 2;
 }
 
 .about-company-right {
@@ -50,7 +69,7 @@
 .section-subtitle {
   font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 600;
-  color: #EABE32;
+  color: #FDB939;
   margin: 0 0 2.5rem 0;
   letter-spacing: 0.15em;
   text-align: left;
@@ -59,7 +78,7 @@
 }
 
 .about-company-right .section-subtitle {
-  color: #EABE32;
+  color: #FDB939;
 }
 
 .about-company-content {
@@ -80,7 +99,7 @@
 
 .section-badge {
   display: inline-block;
-  background: #EABE32;
+  background: #FDB939;
   color: #251E1C;
   padding: 0.8rem 2rem;
   border-radius: 6px;
@@ -90,7 +109,7 @@
   margin-top: 0;
   align-self: flex-start;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(234, 190, 50, 0.3);
+  box-shadow: 0 4px 12px rgba(253, 185, 57, 0.3);
   position: relative;
   overflow: hidden;
   width: fit-content;
@@ -99,13 +118,13 @@
 .section-divider {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #EABE32, rgba(234, 190, 50, 0.3));
+  background: linear-gradient(90deg, #FDB939, rgba(253, 185, 57, 0.3));
   margin-bottom: 2.5rem;
   border-radius: 2px;
 }
 
 .about-company-right .section-badge {
-  background: #EABE32;
+  background: #FDB939;
   color: #251E1C;
 }
 

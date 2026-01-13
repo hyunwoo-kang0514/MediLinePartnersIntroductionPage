@@ -26,9 +26,9 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(234, 190, 50, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(253, 185, 57, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(212, 168, 45, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(234, 190, 50, 0.01) 0%, transparent 50%);
+    radial-gradient(circle at 40% 40%, rgba(253, 185, 57, 0.01) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -75,7 +75,7 @@
 .about-text h3 {
   font-size: 2rem;
   font-weight: 600;
-  color: #EABE32;
+  color: #FDB939;
   margin-bottom: 1.5rem;
 }
 
@@ -104,15 +104,15 @@
 
 .stat-item:hover {
   background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(234, 190, 50, 0.2);
+  border-color: rgba(253, 185, 57, 0.2);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(234, 190, 50, 0.1);
+  box-shadow: 0 10px 30px rgba(253, 185, 57, 0.1);
 }
 
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #EABE32;
+  color: #FDB939;
   margin-bottom: 0.5rem;
 }
 

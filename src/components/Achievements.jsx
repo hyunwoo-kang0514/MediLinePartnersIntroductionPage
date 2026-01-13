@@ -5,7 +5,6 @@ import raDrugExperiences from '../../images/RA_Drug_Experiences.png';
 import raDeviceExperiences from '../../images/RA_Device_Experiences.png';
 import pvProjectExperiences from '../../images/PV_Project_Experiences.png';
 import iccServiceExperiences from '../../images/ICC_Service_Experiences.png';
-import achievementBackground from '../../images/Acheivement_background_image.png';
 import './Achievements.css';
 
 const Achievements = ({ language }) => {
@@ -136,31 +135,28 @@ const Achievements = ({ language }) => {
   };
 
   return (
-    <section className="achievements" ref={ref}>
-      <div className="experiences-split">
-        {/* 왼쪽 섹션 - 다크 배경 */}
-        <motion.div 
-          className="experiences-left"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          <motion.div className="experiences-content-wrapper" variants={itemVariants}>
-            <motion.div className="experiences-badge" variants={itemVariants}>
-              {language === 'eng' ? 'Our Achievements' : 
-               language === 'chn' ? '我们的成就' : '주요 성과'}
-            </motion.div>
+    <section id="achievements" className="achievements" ref={ref}>
+      {/* LSK 스타일의 Experiences 섹션 */}
+      <div className="experiences-section">
+        <div className="experiences-content">
+          <motion.div 
+            className="experiences-text"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             <motion.h2 className="experiences-title" variants={itemVariants}>
               {language === 'eng' ? 'EXPERIENCES' : 
                language === 'chn' ? '经验' : 'EXPERIENCES'}
             </motion.h2>
-            <div className="experiences-divider"></div>
             <motion.p className="experiences-description" variants={itemVariants}>
               {language === 'eng' 
                 ? "We provide high-level, efficient clinical trial services that meet global standards."
                 : language === 'chn'
                 ? "我们提供满足全球标准的高水平、高效的临床试验服务。"
-                : "글로벌 기준을 충족하는 높은 수준의 효율적인 컨설팅 서비스를 제공합니다."
+                : <>
+                    <span className="highlight">글로벌 기준</span>을 충족하는 <span className="highlight">높은 수준</span>의 <span className="highlight">효율적인 컨설팅 서비스</span>를 제공합니다.
+                  </>
               }
             </motion.p>
             <motion.a href="#services" className="view-more-link" variants={itemVariants}>
@@ -168,15 +164,12 @@ const Achievements = ({ language }) => {
                language === 'chn' ? '查看更多 →' : 'VIEW MORE →'}
             </motion.a>
           </motion.div>
-        </motion.div>
+        </div>
+      </div>
 
-        {/* 오른쪽 섹션 - 라이트 배경 + 통계 카드 */}
-        <div 
-          className="experiences-right"
-          style={{
-            background: 'linear-gradient(135deg, #ffffff 0%, #fafafa 100%)'
-          }}
-        >
+      {/* 통계 카드 섹션 */}
+      <div className="stats-section">
+        <div className="stats-container">
           <motion.div 
             className="stats-grid"
             variants={containerVariants}
@@ -193,32 +186,36 @@ const Achievements = ({ language }) => {
               ];
               
               return (
-                <motion.div 
-                  key={achievement.key}
-                  className="stat-card"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.65) 100%), url(${backgroundImages[index]})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="stat-number">
-                    {counts[achievement.key]}+
-                  </div>
-                  <div className="stat-label">
-                    {achievement.label}
-                  </div>
-                  <div className="stat-line"></div>
-                </motion.div>
+              <motion.div 
+                key={achievement.key}
+                className="stat-card"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.65) 100%), url(${backgroundImages[index]})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }}
+                variants={itemVariants}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="stat-icon">
+                  {/* 아이콘 제거 - 텍스트에 집중 */}
+                </div>
+                <div className="stat-number">
+                  {counts[achievement.key]}+
+                </div>
+                <div className="stat-label">
+                  {achievement.label}
+                </div>
+                <div className="stat-line"></div>
+              </motion.div>
               );
             })}
           </motion.div>
         </div>
       </div>
+
     </section>
   );
 };

@@ -1,7 +1,19 @@
 .footer {
-  background: #251E1C;
+  background: #1F1A18;
   color: white;
   padding: 2rem 0;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1F1A18;
+  z-index: 0;
 }
 
 .footer-container {
@@ -13,6 +25,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-logo {
@@ -20,9 +34,12 @@
 }
 
 .footer-logo-image {
-  height: 50px;
+  height: 90px;
   width: auto;
-  filter: brightness(0) saturate(100%) invert(75%) sepia(85%) saturate(1200%) hue-rotate(5deg) brightness(110%) contrast(95%);
+  display: block;
+  background: #1F1A18;
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 .footer-contact {
@@ -62,7 +79,7 @@
   }
   
   .footer-logo-image {
-    height: 35px;
+    height: 65px;
   }
   
   .footer-contact {
@@ -98,7 +115,7 @@
   }
   
   .footer-logo-image {
-    height: 30px;
+    height: 55px;
   }
   
   .footer-contact {

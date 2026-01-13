@@ -5,29 +5,11 @@ import './Services.css'
 
 const Services = ({ language }) => {
   const [activeTab, setActiveTab] = useState('ra')
-  const [activeServiceIndex, setActiveServiceIndex] = useState(0)
   
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
-  
-  const handleTabChange = (tabId) => {
-    setActiveTab(tabId)
-    setActiveServiceIndex(0) // 탭 변경 시 첫 번째 서비스로 리셋
-  }
-  
-  const handlePrevious = () => {
-    if (content.services[activeTab] && activeServiceIndex > 0) {
-      setActiveServiceIndex(activeServiceIndex - 1)
-    }
-  }
-  
-  const handleNext = () => {
-    if (content.services[activeTab] && activeServiceIndex < content.services[activeTab].length - 1) {
-      setActiveServiceIndex(activeServiceIndex + 1)
-    }
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -472,144 +454,59 @@ const Services = ({ language }) => {
 
   return (
     <section id="services" className="services">
-      <div className="services-split">
-        {/* 왼쪽 섹션 - 다크 배경 */}
-        <motion.div 
-          ref={ref}
-          className="services-left"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          <motion.div className="services-content-wrapper" variants={itemVariants}>
-            <motion.div className="service-badge" variants={itemVariants}>
-              {language === 'eng' ? 'Our Services' : 
-               language === 'chn' ? '我们的服务' : '서비스'}
-            </motion.div>
-            <motion.h2 className="services-title" variants={itemVariants}>
-              {language === 'eng' ? 'OUR SERVICES' : 
-               language === 'chn' ? '我们的服务' : 'OUR SERVICES'}
-            </motion.h2>
-            <div className="services-divider"></div>
-            <motion.p className="services-description" variants={itemVariants}>
-              {content.subtitle}
-            </motion.p>
-            
-            {/* 탭 네비게이션 */}
-            <motion.div className="services-tabs" variants={itemVariants}>
-              {content.tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-                  onClick={() => handleTabChange(tab.id)}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </motion.div>
-            
-            {/* 서브 카테고리 버튼들 */}
-            {content.services[activeTab] && content.services[activeTab].length > 0 && (
-              <motion.div 
-                className="service-subcategories"
-                variants={itemVariants}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {content.services[activeTab].map((service, index) => {
-                  // service.title에서 숫자 접두사 제거 (예: "1. RA Consulting" -> "RA Consulting")
-                  const cleanTitle = service.title.replace(/^\d+\.\s*/, '')
-                  return (
-                    <button
-                      key={index}
-                      className={`subcategory-button ${activeServiceIndex === index ? 'active' : ''}`}
-                      onClick={() => setActiveServiceIndex(index)}
-                    >
-                      {index + 1}. {cleanTitle}
-                    </button>
-                  )
-                })}
-              </motion.div>
-            )}
-          </motion.div>
+      <motion.div 
+        ref={ref}
+        className="services-container"
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+      >
+        <motion.div className="section-header" variants={itemVariants}>
+          <div className="service-badge">
+            {language === 'eng' ? 'Our Services' : 
+             language === 'chn' ? '我们的服务' : '서비스'}
+          </div>
+          <h2>
+            {language === 'eng' ? 'OUR SERVICES' : 
+             language === 'chn' ? '我们的服务' : 'OUR SERVICES'}
+          </h2>
+          <p>{content.subtitle}</p>
+        </motion.div>
+        
+        {/* 탭 네비게이션 */}
+        <motion.div className="services-tabs" variants={itemVariants}>
+          {content.tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
         </motion.div>
 
-        {/* 오른쪽 섹션 - 라이트 배경 + 서비스 카드 */}
-        <div className="services-right">
-          {content.services[activeTab] && content.services[activeTab][activeServiceIndex] && (
-            <>
-              <motion.div 
-                className="services-content"
-                key={`${activeTab}-${activeServiceIndex}`}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                <motion.div 
-                  className="service-card"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                >
-                  <div className="service-card-header">
-                    <h3 className="service-title">
-                      {content.services[activeTab][activeServiceIndex].title.replace(/^\d+\.\s*/, '')}
-                    </h3>
-                    <div className="service-card-badge">
-                      {activeServiceIndex + 1} / {content.services[activeTab].length}
-                    </div>
-                  </div>
-                  <ul className="service-items">
-                    {content.services[activeTab][activeServiceIndex].items.map((item, idx) => (
-                      <motion.li 
-                        key={idx} 
-                        className="service-item"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.2 + idx * 0.05 }}
-                      >
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </motion.div>
-              
-              {/* 네비게이션 버튼 */}
-              <div className="service-navigation">
-                <button 
-                  className="nav-button prev-button"
-                  onClick={handlePrevious}
-                  disabled={activeServiceIndex === 0}
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                  <span>
-                    {language === 'eng' ? 'Previous' : 
-                     language === 'chn' ? '上一页' : '이전'}
-                  </span>
-                </button>
-                <button 
-                  className="nav-button next-button"
-                  onClick={handleNext}
-                  disabled={activeServiceIndex === content.services[activeTab].length - 1}
-                >
-                  <span>
-                    {language === 'eng' ? 'Next' : 
-                     language === 'chn' ? '下一页' : '다음'}
-                  </span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+        {/* 서비스 콘텐츠 - 일렬로 나열 */}
+        <motion.div className="services-content" variants={itemVariants}>
+          {content.services[activeTab].map((service, index) => (
+            <motion.div 
+              key={index} 
+              className="service-section"
+              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <h3 className="service-title">{service.title}</h3>
+              <ul className="service-items">
+                {service.items.map((item, idx) => (
+                  <li key={idx} className="service-item">{item}</li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

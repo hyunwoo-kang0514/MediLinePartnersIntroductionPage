@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(37, 30, 28, 0.95); /* Hero의 다크 배경과 맞춤 */
+  background: #1F1A18; /* 로고 배경색과 맞춤 */
   border-bottom: none;
   z-index: 1000;
   height: 70px;
@@ -23,12 +23,13 @@
 
 .header-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  gap: 3rem;
   position: relative;
   z-index: 2;
 }
@@ -36,40 +37,20 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
   text-decoration: none;
-  color: inherit;
-  position: relative;
-  padding-bottom: 0.5rem;
+  padding-left: 0;
 }
 
-.logo::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #EABE32;
-  transform-origin: left;
-  transition: transform 0.3s ease;
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: opacity 0.15s ease;
 }
 
-.logo:hover::after {
-  transform: scaleX(1.1);
-}
-
-/* 로고 이미지 */
-.logo-image { 
-  height: 45px; 
-  width: auto; 
-  object-fit: contain; 
-  filter: brightness(0) saturate(100%) invert(75%) sepia(85%) saturate(1200%) hue-rotate(5deg) brightness(110%) contrast(95%);
-}
-
-/* 헤더가 투명할 때 로고도 골드로 */
-.header:not(.scrolled) .logo-image {
-  filter: brightness(0) saturate(100%) invert(75%) sepia(85%) saturate(1200%) hue-rotate(5deg) brightness(110%) contrast(95%);
+.logo img.logo-transitioning {
+  opacity: 0;
 }
 
 .logo-icon {
@@ -84,7 +65,7 @@
 .big-m {
   font-size: 3rem;
   font-weight: 800;
-  color: #EABE32;
+  color: #FDB939;
   font-family: 'Arial', sans-serif;
   line-height: 1;
   margin: 0;
@@ -99,7 +80,7 @@
 .logo-text h1 {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #EABE32;
+  color: #FDB939;
   margin: 0;
   line-height: 1;
   letter-spacing: 0.05em;
@@ -109,7 +90,7 @@
 .logo-text h2 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #EABE32;
+  color: #FDB939;
   margin: 0;
   line-height: 1;
   letter-spacing: 0.05em;
@@ -117,9 +98,21 @@
 }
 
 /* 네비게이션 */
-.nav { display: flex; align-items: center; gap: 2.5rem; }
+.nav { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  gap: 0;
+  transform: translateX(6%);
+}
 
-.nav-list { display: flex; list-style: none; margin: 0; padding: 0; gap: 2.5rem; }
+.nav-list { 
+  display: flex; 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  gap: 8rem; 
+}
 
 /* 기본(투명 헤더)에서는 흰색 텍스트 - Hero의 다크 배경 위에 있을 때 */
 .header:not(.scrolled) .nav-list a { 
@@ -136,38 +129,83 @@
 
 /* 스크롤 후에는 검정 텍스트 */
 .header.scrolled .nav-list a { color: rgba(28,28,28,0.95); }
-.header.scrolled .nav-list a:hover { color: #EABE32; }
+.header.scrolled .nav-list a:hover { color: #FDB939; }
 
-.nav-list a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #EABE32; transition: width 0.3s ease; border-radius: 1px; }
-.nav-list a:hover::after { width: 100%; }
+.nav-list a::after { 
+  content: ''; 
+  position: absolute; 
+  bottom: -6px; 
+  left: 0;
+  width: 0; 
+  height: 2px; 
+  background: #FDB939; 
+  transition: width 0.3s ease; 
+  border-radius: 1px; 
+}
 
-/* 문의하기 CTA 강조 */
-.nav-list a.contact-cta {
+.nav-list a:hover::after { 
+  width: 100%; 
+}
+
+/* 클릭/포커스 시 짧은 줄 (중앙 정렬) */
+.nav-list a:active::after,
+.nav-list a:focus::after {
+  width: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 헤더 오른쪽 영역 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 0;
+}
+
+/* Contact 버튼 */
+.contact-btn {
   padding: 0.6rem 1.5rem;
   border: none;
   border-radius: 6px;
   color: #251E1C;
-  background: #EABE32;
+  background: #FDB939;
   font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(234, 190, 50, 0.2);
+  box-shadow: 0 2px 8px rgba(253, 185, 57, 0.2);
+  white-space: nowrap;
 }
-.nav-list a.contact-cta:hover {
-  background: #D4A82D;
+
+.contact-btn:hover {
+  background: #F9B428;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(234, 190, 50, 0.3);
+  box-shadow: 0 4px 12px rgba(253, 185, 57, 0.3);
 }
-.nav-list a.contact-cta::after { display: none; }
 
 /* 스크롤 후(밝은 배경)에서도 선명하게 */
-.header.scrolled .nav-list a.contact-cta {
+.header.scrolled .contact-btn {
   color: #251E1C;
-  background: #EABE32;
+  background: #FDB939;
 }
-.header.scrolled .nav-list a.contact-cta:hover { 
-  background: #D4A82D;
+
+.header.scrolled .contact-btn:hover { 
+  background: #F9B428;
   color: #251E1C;
 }
+
+/* 기본(투명 헤더)에서도 동일하게 */
+.header:not(.scrolled) .contact-btn {
+  color: #251E1C;
+  background: #FDB939;
+}
+
+.header:not(.scrolled) .contact-btn:hover {
+  background: #F9B428;
+  color: #251E1C;
+}
+
 
 .mobile-menu-btn {
   display: none;
@@ -191,7 +229,7 @@
 .header:not(.scrolled) .mobile-menu-btn span { background: #fff; }
 
 .mobile-menu-btn:hover span {
-  background: #EABE32;
+  background: #FDB939;
 }
 
 @media (max-width: 768px) {
@@ -202,32 +240,73 @@
   .header-container {
     padding: 0 1rem;
     height: 60px;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
   }
   
-  .logo-image {
-    height: 35px;
+  .logo {
+    padding-left: 0;
   }
   
-  .logo-text h1 {
-    font-size: 1.4rem;
+  .logo img {
+    height: 40px;
   }
   
-  .logo-text h2 {
-    font-size: 0.5rem;
+  .nav { 
+    position: fixed; 
+    top: 60px; 
+    left: 0; 
+    right: 0; 
+    background: rgba(255,255,255,0.98); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid #f0f0f0; 
+    flex-direction: column; 
+    padding: 1.5rem; 
+    transform: translateY(-100%); 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s ease; 
+    gap: 1rem; 
+    box-shadow: 0 4px 20px rgba(253, 185, 57, 0.08); 
+    z-index: 1000; 
   }
   
-  .nav { position: fixed; top: 60px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); border-bottom: 1px solid #f0f0f0; flex-direction: column; padding: 1.5rem; transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s ease; gap: 1rem; box-shadow: 0 4px 20px rgba(234, 190, 50, 0.08); z-index: 1000; }
-  .nav.nav-open { transform: translateY(0); opacity: 1; visibility: visible; }
-  .nav-list { flex-direction: column; gap: 1rem; width: 100%; }
-  .nav-list a { display: block; padding: 0.8rem 0; font-size: 1.1rem; color: #1C1C1C; text-align: center; border-bottom: 1px solid #f0f0f0; }
-  .nav-list a:last-child { border-bottom: none; }
-  .mobile-menu-btn { display: flex; }
+  .nav.nav-open { 
+    transform: translateY(0); 
+    opacity: 1; 
+    visibility: visible; 
+  }
   
-  .language-toggle {
-    justify-content: center;
-    margin-top: 1rem;
-    padding-top: 1rem
-    border-top: 1px solid #f0f0f0;
+  .nav-list { 
+    flex-direction: column; 
+    gap: 1rem; 
+    width: 100%; 
+  }
+  
+  .nav-list a { 
+    display: block; 
+    padding: 0.8rem 0; 
+    font-size: 1.1rem; 
+    color: #1C1C1C; 
+    text-align: center; 
+    border-bottom: 1px solid #f0f0f0; 
+  }
+  
+  .nav-list a:last-child { 
+    border-bottom: none; 
+  }
+  
+  .header-right {
+    gap: 1rem;
+  }
+  
+  .contact-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+  
+  .mobile-menu-btn { 
+    display: flex; 
   }
   
   .mobile-menu-btn.nav-open span:nth-child(1) {
@@ -249,10 +328,21 @@
   }
   
   .header-container {
+    padding: 0 0.8rem;
     height: 60px;
+    gap: 0.5rem;
   }
   
-  .logo-image {
-    height: 35px;
+  .logo img {
+    height: 40px;
+  }
+  
+  .header-right {
+    gap: 0.8rem;
+  }
+  
+  .contact-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 } 

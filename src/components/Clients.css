@@ -2,143 +2,201 @@
   min-height: 100vh;
   width: 100%;
   display: flex;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  scroll-margin-top: 70px;
-}
-
-.clients-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-
-/* 왼쪽 섹션 - 다크 배경 */
-.clients-left {
-  background:
-    radial-gradient(circle at 20% 30%, rgba(234, 190, 50, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(234, 190, 50, 0.05) 0%, transparent 50%),
-    #251E1C;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5rem 6rem;
-  position: relative;
-  align-items: flex-start;
-  overflow: hidden;
-}
-
-.clients-content-wrapper {
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.clients-badge {
-  display: inline-block;
-  background: #EABE32;
-  color: #251E1C;
-  padding: 0.7rem 1.8rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(234, 190, 50, 0.3);
+  align-items: center;
+  background: url('../../images/Company_Collaborated_Image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 5rem 0;
   position: relative;
   overflow: hidden;
 }
 
-.clients-badge::before {
+.clients::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(37, 30, 28, 0.75);
+  z-index: 1;
+}
+
+/* 배경 이미지들 */
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.clients-badge:hover::before {
-  left: 100%;
+.bg-image {
+  position: absolute;
+  opacity: 0.05;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.clients-title {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.5rem;
-  color: white;
-  text-transform: uppercase;
-  line-height: 1.2;
+.bg-1 {
+  top: 10%;
+  right: 5%;
+  width: 200px;
+  height: 200px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23FF4D4D" opacity="0.08"/><circle cx="50" cy="50" r="20" fill="%23FF6B6B" opacity="0.12"/></svg>');
+  animation: float 8s ease-in-out infinite;
+  filter: blur(0.5px);
 }
 
-.clients-divider {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #EABE32, rgba(234, 190, 50, 0.3));
-  margin-bottom: 3rem;
-  border-radius: 2px;
+.bg-2 {
+  bottom: 20%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="%23FF6B6B" opacity="0.06"/><rect x="30" y="30" width="40" height="40" fill="%23FF7C7C" opacity="0.1"/></svg>');
+  animation: float 10s ease-in-out infinite reverse;
+  filter: blur(0.5px);
 }
 
-.clients-description {
-  font-size: clamp(1.6rem, 2.8vw, 2rem);
-  font-weight: 600;
-  line-height: 1.8;
-  margin-bottom: 3rem;
-  word-break: keep-all;
-  color: white;
+.bg-3 {
+  top: 60%;
+  right: 15%;
+  width: 100px;
+  height: 100px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="%23FF7C7C" opacity="0.05"/><polygon points="50,30 70,70 30,70" fill="%23FF4D4D" opacity="0.08"/></svg>');
+  animation: float 9s ease-in-out infinite;
+  filter: blur(0.5px);
 }
 
-.clients-subdescription {
-  font-size: clamp(1.3rem, 2.2vw, 1.5rem);
-  line-height: 1.9;
-  color: rgba(255, 255, 255, 0.9);
-  word-break: keep-all;
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) scale(1); 
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-25px) rotate(3deg) scale(1.05); 
+    opacity: 1;
+  }
 }
 
-/* 오른쪽 섹션 - 라이트 배경 */
-.clients-right {
-  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+.clients-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  min-height: calc(100vh - 10rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5rem 3rem;
   position: relative;
-  align-items: center;
-  overflow: hidden;
+  z-index: 2;
+}
+
+.clients-header {
+  text-align: left;
+  margin-bottom: 4rem;
+  max-width: 100% !important;
+  margin-left: 0;
+  margin-right: auto;
+  width: 100% !important;
+}
+
+.clients-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: left;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 주요고객사 제목 아래 빨간색 줄 제거 */
+
+.clients-subtitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #FDB939;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.clients-subtitle .highlight {
+  color: #FDB939;
+  font-weight: 900;
+}
+
+.clients-description {
+  font-size: 1.4rem;
+  color: #ffffff;
+  max-width: 100%;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+  text-align: left;
+  font-weight: 500;
+  white-space: normal !important;
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  display: block !important;
+}
+
+.clients-description.question {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  display: block !important;
+}
+
+.clients-description.answer {
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  display: block !important;
 }
 
 /* 마키 효과 영역 */
 .clients-marquee {
   position: relative;
+  margin-bottom: 4rem;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .marquee-container {
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 400px;
+  width: 100vw;
   overflow: hidden;
-  display: flex;
-  align-items: center;
 }
 
 .marquee-track {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   height: 100%;
-  gap: 2rem;
+  gap: 3rem;
   padding: 0;
   animation: marquee 60s linear infinite;
   width: max-content;
@@ -150,9 +208,10 @@
 }
 
 /* 텍스트 하이라이트 스타일 */
-.clients-left .highlight {
-  color: #EABE32;
+.highlight {
+  color: #FDB939;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(253, 185, 57, 0.3);
 }
 
 /* 반응형 디자인 */
@@ -197,104 +256,79 @@
 
 .marquee-card {
   text-align: center;
-  width: 300px;
-  height: calc(100vh - 10rem);
-  min-height: 500px;
-  max-height: 600px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 2px solid #e8e8e8;
-  border-left: 4px solid transparent;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 280px;
+  height: 320px;
+  background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 
+    0 10px 30px rgba(37, 30, 28, 0.15),
+    0 4px 12px rgba(37, 30, 28, 0.1);
+  border: 2px solid rgba(253, 185, 57, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
 }
 
-.marquee-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, #EABE32, #D4A82D);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.3s ease;
-}
-
 /* 카드 상단 빨간색 줄 제거 */
 
 .marquee-card:hover {
-  transform: translateY(-8px) translateX(4px);
-  box-shadow: 0 16px 48px rgba(234, 190, 50, 0.25), 0 6px 16px rgba(234, 190, 50, 0.15);
-  border-color: rgba(234, 190, 50, 0.4);
-  border-left-color: #EABE32;
-  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
-}
-
-.marquee-card:hover::before {
-  transform: scaleY(1);
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px rgba(253, 185, 57, 0.25),
+    0 8px 20px rgba(253, 185, 57, 0.15);
+  border-color: #FDB939;
 }
 
 .client-logo-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 220px;
-  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-  border-radius: 14px;
-  padding: 2rem;
-  border: 1px solid #e8e8e8;
-  transition: all 0.4s ease;
+  height: 150px; /* 120px에서 150px로 증가 */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8));
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
-.client-logo-container::before {
+.client-logo-container::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(234, 190, 50, 0.03) 0%, rgba(234, 190, 50, 0.01) 100%);
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  border-radius: 18px;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
-.marquee-card:hover .client-logo-container {
-  background: linear-gradient(135deg, rgba(234, 190, 50, 0.08) 0%, rgba(234, 190, 50, 0.03) 100%);
-  border-color: rgba(234, 190, 50, 0.3);
-  transform: translateY(-2px);
-}
-
-.marquee-card:hover .client-logo-container::before {
+.marquee-card:hover .client-logo-container::after {
   opacity: 1;
 }
 
 .client-logo-img {
-  max-width: 200px;
-  max-height: 160px;
-  width: auto;
-  height: auto;
+  max-width: 150px; /* 100px에서 150px로 증가 */
+  max-height: 120px; /* 80px에서 120px로 증가 */
   object-fit: contain;
   filter: grayscale(0);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 1;
+  transition: all 0.3s ease;
 }
 
-.marquee-card:hover .client-logo-img {
-  transform: scale(1.08);
-  filter: brightness(1.05);
+.client-logo-img:hover {
+  filter: grayscale(0);
+  transform: scale(1.05);
 }
 
 .logo-placeholder {
@@ -327,86 +361,50 @@
 }
 
 .client-name {
-  font-size: clamp(1.4rem, 2.2vw, 1.6rem);
+  font-size: 1.4rem;
   font-weight: 700;
   color: #251E1C;
-  margin-bottom: 1.2rem;
-  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
+  max-width: 160px;
   text-align: center;
   word-break: keep-all;
   margin-left: auto;
   margin-right: auto;
-  min-height: 4rem;
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   padding: 0 0.5rem;
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.client-name::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, #EABE32, #D4A82D);
-  transition: transform 0.4s ease;
-  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 .marquee-card:hover .client-name {
-  color: #EABE32;
-}
-
-.marquee-card:hover .client-name::after {
-  transform: translateX(-50%) scaleX(1);
+  color: #FDB939;
 }
 
 .client-description {
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
-  color: #666;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #251E1C;
+  line-height: 1.3;
+  max-width: 180px;
   margin: 0 auto;
-  margin-top: auto;
-  padding-top: 1.5rem;
-  min-height: 3rem;
+  min-height: 2.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-weight: 400;
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.client-description::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
-  transition: all 0.4s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .marquee-card:hover .client-description {
-  color: #251E1C;
-  font-weight: 500;
-}
-
-.marquee-card:hover .client-description::before {
-  width: 60px;
-  background: linear-gradient(90deg, transparent, rgba(234, 190, 50, 0.5), transparent);
+  color: #FDB939;
+  font-weight: 600;
 }
 
 /* 슬라이더 컨트롤 현대화 */
@@ -420,8 +418,8 @@
 
 .control-btn {
   background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(234, 190, 50, 0.2);
-  color: #EABE32;
+  border: 2px solid rgba(253, 185, 57, 0.3);
+  color: #FDB939;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -436,11 +434,11 @@
 }
 
 .control-btn:hover {
-  background: #EABE32;
+  background: #FDB939;
   color: #251E1C;
-  border-color: #EABE32;
+  border-color: #FDB939;
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(234, 190, 50, 0.3);
+  box-shadow: 0 8px 25px rgba(253, 185, 57, 0.3);
 }
 
 .control-btn:active {
@@ -469,7 +467,7 @@
 
 .cta-button {
   display: inline-block;
-  background: #EABE32;
+  background: #FDB939;
   color: #251E1C;
   padding: 1.2rem 2.5rem;
   border-radius: 50px;
@@ -477,66 +475,86 @@
   font-size: 1.2rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 2px solid #EABE32;
+  border: 2px solid #FDB939;
 }
 
 .cta-button:hover {
   background: #251E1C;
-  color: #EABE32;
+  color: #FDB939;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(234, 190, 50, 0.3);
+  box-shadow: 0 10px 30px rgba(253, 185, 57, 0.3);
 }
 
 /* 반응형 디자인 */
 @media (max-width: 1024px) {
-  .clients-split {
-    grid-template-columns: 1fr;
+  .clients-container {
+    padding: 0 1.5rem;
   }
   
-  .clients-left {
-    padding: 4rem 3rem;
-    min-height: auto;
+  .clients-title {
+    font-size: 2.5rem;
   }
   
-  .clients-right {
-    padding: 4rem 3rem;
-    min-height: auto;
+  .clients-subtitle {
+    font-size: 1.3rem;
   }
   
-  .marquee-container {
-    height: 100%;
-  }
-  
-  .marquee-card {
-    width: 280px;
-    height: calc(100vh - 8rem);
-    min-height: 450px;
-    max-height: 550px;
-    padding: 2.5rem 2rem;
+  .slider-container {
+    height: 350px;
   }
   
   .client-logo-container {
-    height: 200px;
-    padding: 1.5rem;
+    height: 180px;
   }
   
   .client-logo-img {
     max-width: 180px;
-    max-height: 140px;
+    max-height: 130px;
+  }
+  
+  .client-name {
+    font-size: 2.2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .clients-left {
-    padding: 3rem 2rem;
+  .clients {
+    padding: 3rem 0;
   }
   
-  .clients-right {
-    padding: 3rem 2rem;
+  .clients-container {
+    padding: 0 1rem;
+  }
+  
+  .clients-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .clients-title {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .clients-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: 1.2rem;
+  }
+  
+  .clients-description.question {
+    font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+    margin-bottom: 1rem;
+  }
+  
+  .clients-description.answer {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+  }
+  
+  .clients-marquee {
+    margin-bottom: 2rem;
   }
   
   .marquee-container {
-    height: 100%;
+    height: 300px;
   }
   
   .marquee-track {
@@ -544,47 +562,65 @@
   }
   
   .marquee-card {
-    width: 240px;
-    height: calc(100vh - 6rem);
-    min-height: 400px;
-    max-height: 500px;
-    padding: 2rem 1.5rem;
-  }
-  
-  .client-logo-container {
-    height: 180px;
-    margin-bottom: 1.5rem;
+    width: 200px;
+    height: 260px;
     padding: 1.5rem;
   }
   
+  .client-logo-container {
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+  
   .client-logo-img {
-    max-width: 160px;
-    max-height: 120px;
+    max-width: 120px;
+    max-height: 90px;
   }
   
   .client-name {
     font-size: clamp(1.2rem, 2.8vw, 1.4rem);
-    margin-bottom: 1rem;
-    min-height: 3.5rem;
+    margin-bottom: 0.6rem;
   }
   
   .client-description {
     font-size: clamp(0.9rem, 2vw, 1rem);
-    padding-top: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .clients-left {
-    padding: 2.5rem 1.5rem;
+  .clients {
+    padding: 2rem 0;
   }
   
-  .clients-right {
-    padding: 2.5rem 1.5rem;
+  .clients-container {
+    padding: 0 0.8rem;
+  }
+  
+  .clients-header {
+    margin-bottom: 2rem;
+  }
+  
+  .clients-title {
+    font-size: clamp(1.6rem, 3.5vw, 1.8rem);
+    margin-bottom: 0.6rem;
+  }
+  
+  .clients-subtitle {
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    margin-bottom: 1rem;
+  }
+  
+  .clients-description.question {
+    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .clients-description.answer {
+    font-size: clamp(0.9rem, 2vw, 1rem);
   }
   
   .marquee-container {
-    height: 100%;
+    height: 250px;
   }
   
   .marquee-track {
@@ -592,32 +628,27 @@
   }
   
   .marquee-card {
-    width: 200px;
-    height: calc(100vh - 4rem);
-    min-height: 350px;
-    max-height: 450px;
-    padding: 1.5rem 1.2rem;
-  }
-  
-  .client-logo-container {
-    height: 150px;
-    margin-bottom: 1.2rem;
+    width: 180px;
+    height: 220px;
     padding: 1.2rem;
   }
   
+  .client-logo-container {
+    height: 100px;
+    margin-bottom: 0.8rem;
+  }
+  
   .client-logo-img {
-    max-width: 140px;
-    max-height: 100px;
+    max-width: 100px;
+    max-height: 70px;
   }
   
   .client-name {
     font-size: clamp(1rem, 2.2vw, 1.2rem);
-    margin-bottom: 0.8rem;
-    min-height: 3rem;
+    margin-bottom: 0.5rem;
   }
   
   .client-description {
     font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-    padding-top: 1rem;
   }
-} 
+}

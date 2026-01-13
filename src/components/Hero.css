@@ -23,7 +23,7 @@
 }
 
 .hero-left {
-  background: #251E1C;
+  background: #1F1A18;
   color: white;
   display: flex;
   flex-direction: column;
@@ -78,13 +78,13 @@
 }
 
 .hero-title .highlight {
-  color: #EABE32;
+  color: #FDB939;
 }
 
 .hero-divider {
   width: 60px;
   height: 3px;
-  background: #EABE32;
+  background: #FDB939;
   margin: 2rem 0 1rem 0;
 }
 
@@ -136,8 +136,8 @@
 }
 
 .scroll-circle:hover {
-  border-color: #EABE32;
-  color: #EABE32;
+  border-color: #FDB939;
+  color: #FDB939;
   transform: translateY(5px);
 }
 

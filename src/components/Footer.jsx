@@ -1,6 +1,5 @@
 import React from 'react'
 import './Footer.css'
-import companyLogoFinal from '../assets/company_logo_final_transparent.png'
 
 const Footer = ({ language }) => {
   const getContent = () => {
@@ -30,7 +29,7 @@ const Footer = ({ language }) => {
       <div className="footer-container">
         <div className="footer-logo">
           <img 
-            src={companyLogoFinal} 
+            src="/assets/MLP.jpg" 
             alt="MediLine Partners Logo" 
             className="footer-logo-image"
           />
