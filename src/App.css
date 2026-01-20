@@ -73,12 +73,12 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FDB939;
+  background: #FFEB3B;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F9B428;
+  background: #FFD700;
 }
 
 /* 부드러운 스크롤 */
@@ -89,7 +89,7 @@ html {
 
 /* 포커스 스타일 */
 *:focus {
-  outline: 2px solid #FDB939;
+  outline: 2px solid #FFEB3B;
   outline-offset: 2px;
 }
 

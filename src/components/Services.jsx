@@ -5,6 +5,7 @@ import './Services.css'
 
 const Services = ({ language }) => {
   const [activeTab, setActiveTab] = useState('ra')
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0) // 서브탭 인덱스
   
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -41,9 +42,9 @@ const Services = ({ language }) => {
           title: "Services",
           subtitle: "Professional services for pharmaceutical and medical device licensing and pharmacovigilance",
           tabs: [
-            { id: 'ra', label: 'RA Licensing' },
-            { id: 'pv', label: 'PV Pharmacovigilance' },
-            { id: 'icc', label: 'ICC Domestic Agent' }
+            { id: 'ra', label: 'Regulatory Affairs' },
+            { id: 'pv', label: 'Pharmacovigilance' },
+            { id: 'icc', label: 'In-Country Caretaker' }
           ],
           services: {
             ra: [
@@ -178,9 +179,9 @@ const Services = ({ language }) => {
           title: "服务",
           subtitle: "药品和医疗器械许可及药物警戒专业服务",
           tabs: [
-            { id: 'ra', label: 'RA许可' },
-            { id: 'pv', label: 'PV药物警戒' },
-            { id: 'icc', label: 'ICC国内代理' }
+            { id: 'ra', label: '监管事务' },
+            { id: 'pv', label: '药物警戒' },
+            { id: 'icc', label: '国内代理' }
           ],
           services: {
             ra: [
@@ -315,9 +316,9 @@ const Services = ({ language }) => {
           title: "서비스",
           subtitle: "의약품 의료기기 인허가 약물감시 전문 서비스",
           tabs: [
-            { id: 'ra', label: 'RA 인허가' },
-            { id: 'pv', label: 'PV 약물감시' },
-            { id: 'icc', label: 'ICC 국내대리인' }
+            { id: 'ra', label: '인허가 (Regulatory Affairs)' },
+            { id: 'pv', label: '약물감시 (Pharmacovigilance)' },
+            { id: 'icc', label: '국내대리인 (In-Country Caretaker)' }
           ],
           services: {
             ra: [
@@ -479,32 +480,48 @@ const Services = ({ language }) => {
             <button
               key={tab.id}
               className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id)
+                setActiveServiceIndex(0) // 탭 선택 시 첫 번째 서비스로 초기화
+              }}
             >
               {tab.label}
             </button>
           ))}
         </motion.div>
 
-        {/* 서비스 콘텐츠 - 일렬로 나열 */}
+        {/* 서비스 콘텐츠 */}
         <motion.div className="services-content" variants={itemVariants}>
-          {content.services[activeTab].map((service, index) => (
+          <>
+            {/* 서브탭 */}
+            <motion.div className="ra-service-tabs" variants={itemVariants}>
+              {content.services[activeTab].map((service, index) => (
+                <button
+                  key={index}
+                  className={`ra-service-tab ${activeServiceIndex === index ? 'active' : ''}`}
+                  onClick={() => setActiveServiceIndex(index)}
+                >
+                  {service.title}
+                </button>
+              ))}
+            </motion.div>
+            
+            {/* 선택된 서비스 상세 내용 */}
             <motion.div 
-              key={index} 
-              className="service-section"
-              variants={itemVariants}
+              className="service-detail-section"
+              key={`${activeTab}-${activeServiceIndex}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5 }}
             >
-              <h3 className="service-title">{service.title}</h3>
+              <h3 className="service-title">{content.services[activeTab][activeServiceIndex].title}</h3>
               <ul className="service-items">
-                {service.items.map((item, idx) => (
+                {content.services[activeTab][activeServiceIndex].items.map((item, idx) => (
                   <li key={idx} className="service-item">{item}</li>
                 ))}
               </ul>
             </motion.div>
-          ))}
+          </>
         </motion.div>
       </motion.div>
     </section>

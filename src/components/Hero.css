@@ -78,13 +78,13 @@
 }
 
 .hero-title .highlight {
-  color: #FDB939;
+  color: #FFEB3B;
 }
 
 .hero-divider {
   width: 60px;
   height: 3px;
-  background: #FDB939;
+  background: #FFEB3B;
   margin: 2rem 0 1rem 0;
 }
 
@@ -136,8 +136,8 @@
 }
 
 .scroll-circle:hover {
-  border-color: #FDB939;
-  color: #FDB939;
+  border-color: #FFEB3B;
+  color: #FFEB3B;
   transform: translateY(5px);
 }
 
