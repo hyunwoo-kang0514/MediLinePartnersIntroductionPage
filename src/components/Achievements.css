@@ -98,7 +98,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   margin-bottom: 1.5rem;
-  color: #FFEB3B;
+  color: #FFE100;
   opacity: 1;
 }
 
@@ -112,24 +112,24 @@
 }
 
 .experiences-description .highlight {
-  color: #FFEB3B;
+  color: #FFE100;
 }
 
 .view-more-link {
-  color: #FFEB3B;
+  color: #FFE100;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
   opacity: 1;
   transition: all 0.3s ease;
-  border: 2px solid #FFEB3B;
+  border: 2px solid #FFE100;
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
   display: inline-block;
 }
 
 .view-more-link:hover {
-  background: #FFEB3B;
+  background: #FFE100;
   color: #251E1C;
   transform: translateX(5px);
 }
@@ -184,7 +184,7 @@
 
 .stat-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.65) 100%);
-  border: 1px solid rgba(255, 235, 59, 0.3);
+  border: 1px solid rgba(255, 225, 0, 0.3);
   border-radius: 8px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -211,7 +211,7 @@
 .stat-card:hover {
   background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
   transform: translateY(-2px);
-  border-color: rgba(255, 235, 59, 0.5);
+  border-color: rgba(255, 225, 0, 0.5);
 }
 
 .stat-icon {
@@ -245,13 +245,13 @@
 }
 
 .stat-card:hover .stat-label {
-  color: #FFEB3B;
+  color: #FFE100;
 }
 
 .stat-line {
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #FFEB3B, rgba(255, 235, 59, 0.3));
+  background: linear-gradient(90deg, #FFE100, rgba(255, 225, 0, 0.3));
   margin: 0 auto;
   border-radius: 1px;
   transition: all 0.3s ease;
@@ -259,7 +259,7 @@
 
 .stat-card:hover .stat-line {
   width: 60px;
-  background: linear-gradient(90deg, #FFEB3B, #FFD700);
+  background: linear-gradient(90deg, #FFE100, #FFD700);
 }
 
 

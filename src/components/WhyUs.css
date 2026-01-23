@@ -19,9 +19,9 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 235, 59, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(255, 225, 0, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(212, 168, 45, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 235, 59, 0.01) 0%, transparent 50%);
+    radial-gradient(circle at 40% 40%, rgba(255, 225, 0, 0.01) 0%, transparent 50%);
   opacity: 0.5;
   pointer-events: none;
 }
@@ -98,7 +98,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 235, 59, 0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 225, 0, 0.05), transparent);
   transition: left 0.5s ease;
 }
 
@@ -108,9 +108,9 @@
 
 .feature-card:hover {
   background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(255, 235, 59, 0.2);
+  border-color: rgba(255, 225, 0, 0.2);
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(255, 235, 59, 0.1);
+  box-shadow: 0 15px 40px rgba(255, 225, 0, 0.1);
 }
 
 .feature-icon {
@@ -140,7 +140,7 @@
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(135deg, #FFD700, #FFEB3B);
+  background: linear-gradient(135deg, #FFD700, #FFE100);
   color: #251E1C;
   padding: 1.2rem 3rem;
   border-radius: 50px;
@@ -148,7 +148,7 @@
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(255, 235, 59, 0.2);
+  box-shadow: 0 10px 30px rgba(255, 225, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -171,7 +171,7 @@
 .cta-button:hover {
   background: linear-gradient(135deg, #C49A28, #FFD700);
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 235, 59, 0.3);
+  box-shadow: 0 15px 40px rgba(255, 225, 0, 0.3);
 }
 
 @media (max-width: 768px) {

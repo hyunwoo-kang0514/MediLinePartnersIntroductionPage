@@ -16,7 +16,7 @@
   right: 0;
   width: 4px;
   height: 100%;
-  background: #FFEB3B;
+  background: #FFE100;
   z-index: 1;
 }
 
@@ -49,7 +49,7 @@
 
 .service-badge {
   display: inline-block;
-  background: #FFEB3B;
+  background: #FFE100;
   color: #251E1C;
   padding: 0.7rem 1.8rem;
   border-radius: 6px;
@@ -57,7 +57,7 @@
   font-weight: 700;
   margin-bottom: 2rem;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(255, 235, 59, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 225, 0, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -117,7 +117,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
-  border-bottom: 1px solid rgba(255, 235, 59, 0.3);
+  border-bottom: 1px solid rgba(255, 225, 0, 0.3);
 }
 
 .tab-button {
@@ -135,12 +135,12 @@
 }
 
 .tab-button:hover {
-  color: #FFEB3B;
+  color: #FFE100;
 }
 
 .tab-button.active {
-  color: #FFEB3B;
-  border-bottom-color: #FFEB3B;
+  color: #FFE100;
+  border-bottom-color: #FFE100;
 }
 
 .tab-button.active::after {
@@ -150,7 +150,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: #FFEB3B;
+  background: #FFE100;
 }
 
 /* RA 인허가 서브탭 */
@@ -163,8 +163,8 @@
 }
 
 .ra-service-tab {
-  background: rgba(255, 235, 59, 0.1);
-  border: 2px solid rgba(255, 235, 59, 0.3);
+  background: rgba(255, 225, 0, 0.1);
+  border: 2px solid rgba(255, 225, 0, 0.3);
   color: rgba(255, 255, 255, 0.8);
   padding: 1.5rem 2.5rem;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
@@ -177,24 +177,24 @@
 }
 
 .ra-service-tab:hover {
-  background: rgba(255, 235, 59, 0.2);
-  border-color: rgba(255, 235, 59, 0.5);
-  color: #FFEB3B;
+  background: rgba(255, 225, 0, 0.2);
+  border-color: rgba(255, 225, 0, 0.5);
+  color: #FFE100;
   transform: translateY(-2px);
 }
 
 .ra-service-tab.active {
-  background: #FFEB3B;
-  border-color: #FFEB3B;
+  background: #FFE100;
+  border-color: #FFE100;
   color: #251E1C;
-  box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 225, 0, 0.4);
 }
 
 .service-detail-section {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  border: 1px solid rgba(255, 235, 59, 0.2);
+  border: 1px solid rgba(255, 225, 0, 0.2);
 }
 
 /* 서비스 콘텐츠 - 일렬로 나열 */
@@ -228,10 +228,10 @@
 .service-title {
   font-size: clamp(1.8rem, 3vw, 2.2rem);
   font-weight: 700;
-  color: #FFEB3B;
+  color: #FFE100;
   margin-bottom: 1.5rem;
   padding-bottom: 0.8rem;
-  border-bottom: 2px solid rgba(255, 235, 59, 0.3);
+  border-bottom: 2px solid rgba(255, 225, 0, 0.3);
 }
 
 .service-items {
@@ -264,7 +264,7 @@
   left: 0.2rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #FFEB3B;
+  color: #FFE100;
   font-weight: bold;
   font-size: 1.8rem;
   line-height: 1;

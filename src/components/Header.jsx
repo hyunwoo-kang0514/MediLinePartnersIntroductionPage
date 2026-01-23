@@ -82,7 +82,7 @@ const Header = ({ language, onLanguageChange }) => {
       <div className="header-container">
         <a href="/" className="logo">
           <img 
-            src={isScrolled ? "/assets/logo_white.jpg" : "/assets/logo.jpg"} 
+            src={isScrolled ? "/assets/logo_white.jpg" : "/assets/final_logo.png"}
             alt="Mediline Partners logo"
             className={isLogoTransitioning ? 'logo-transitioning' : ''}
           />

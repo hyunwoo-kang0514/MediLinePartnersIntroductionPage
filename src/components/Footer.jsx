@@ -29,7 +29,7 @@ const Footer = ({ language }) => {
       <div className="footer-container">
         <div className="footer-logo">
           <img 
-            src="/assets/MLP.jpg" 
+            src="/assets/final_logo.png" 
             alt="MediLine Partners Logo" 
             className="footer-logo-image"
           />

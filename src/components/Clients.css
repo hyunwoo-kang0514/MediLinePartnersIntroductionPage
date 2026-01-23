@@ -120,7 +120,7 @@
 .clients-subtitle {
   font-size: 3.5rem;
   font-weight: 900;
-  color: #FFEB3B;
+  color: #FFE100;
   margin-bottom: 1.5rem;
   text-align: left;
   line-height: 1.1;
@@ -129,7 +129,7 @@
 }
 
 .clients-subtitle .highlight {
-  color: #FFEB3B;
+  color: #FFE100;
   font-weight: 900;
 }
 
@@ -209,9 +209,9 @@
 
 /* 텍스트 하이라이트 스타일 */
 .highlight {
-  color: #FFEB3B;
+  color: #FFE100;
   font-weight: 700;
-  text-shadow: 0 2px 4px rgba(255, 235, 59, 0.3);
+  text-shadow: 0 2px 4px rgba(255, 225, 0, 0.3);
 }
 
 /* 반응형 디자인 */
@@ -264,7 +264,7 @@
   box-shadow: 
     0 10px 30px rgba(37, 30, 28, 0.15),
     0 4px 12px rgba(37, 30, 28, 0.1);
-  border: 2px solid rgba(255, 235, 59, 0.2);
+  border: 2px solid rgba(255, 225, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
@@ -279,9 +279,9 @@
 .marquee-card:hover {
   transform: translateY(-6px);
   box-shadow: 
-    0 20px 40px rgba(255, 235, 59, 0.25),
-    0 8px 20px rgba(255, 235, 59, 0.15);
-  border-color: #FFEB3B;
+    0 20px 40px rgba(255, 225, 0, 0.25),
+    0 8px 20px rgba(255, 225, 0, 0.15);
+  border-color: #FFE100;
 }
 
 .client-logo-container {
@@ -384,7 +384,7 @@
 }
 
 .marquee-card:hover .client-name {
-  color: #FFEB3B;
+  color: #FFE100;
 }
 
 .client-description {
@@ -403,7 +403,7 @@
 }
 
 .marquee-card:hover .client-description {
-  color: #FFEB3B;
+  color: #FFE100;
   font-weight: 600;
 }
 
@@ -418,8 +418,8 @@
 
 .control-btn {
   background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(255, 235, 59, 0.3);
-  color: #FFEB3B;
+  border: 2px solid rgba(255, 225, 0, 0.3);
+  color: #FFE100;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -434,11 +434,11 @@
 }
 
 .control-btn:hover {
-  background: #FFEB3B;
+  background: #FFE100;
   color: #251E1C;
-  border-color: #FFEB3B;
+  border-color: #FFE100;
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(255, 235, 59, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 225, 0, 0.3);
 }
 
 .control-btn:active {
@@ -467,7 +467,7 @@
 
 .cta-button {
   display: inline-block;
-  background: #FFEB3B;
+  background: #FFE100;
   color: #251E1C;
   padding: 1.2rem 2.5rem;
   border-radius: 50px;
@@ -475,14 +475,14 @@
   font-size: 1.2rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 2px solid #FFEB3B;
+  border: 2px solid #FFE100;
 }
 
 .cta-button:hover {
   background: #251E1C;
-  color: #FFEB3B;
+  color: #FFE100;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 235, 59, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 225, 0, 0.3);
 }
 
 /* 반응형 디자인 */

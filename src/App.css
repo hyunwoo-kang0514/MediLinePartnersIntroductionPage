@@ -73,7 +73,7 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FFEB3B;
+  background: #FFE100;
   border-radius: 4px;
 }
 
@@ -89,7 +89,7 @@ html {
 
 /* 포커스 스타일 */
 *:focus {
-  outline: 2px solid #FFEB3B;
+  outline: 2px solid #FFE100;
   outline-offset: 2px;
 }
 
