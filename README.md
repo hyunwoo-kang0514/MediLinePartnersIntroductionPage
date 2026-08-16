@@ -1,33 +1,58 @@
-# MediLinePartners
+MediLinePartners Website
 
-Web introduction page for MediLinePartners
+A freelance corporate website project designed and developed for MediLinePartners, a healthcare consulting company.
 
-## About
+💼 About the Project
 
-MediLinePartners는 20년 연속 업계 1위 CRO 컨설팅 전문 기업입니다.
+This project was created as a freelance website development project for MediLinePartners.
 
-## Features
+The goal was to build a clean, professional, and responsive corporate website that clearly presents the company’s consulting services, business information, and brand identity.
 
-- **About Us**: 회사 소개 및 전문성
-- **PV Service**: 전문적인 약물감시 서비스
-- **RA Service**: 체계적인 인허가 컨설팅
+I handled the development process from implementation to deployment, with a focus on usability, responsive design, and a professional user experience.
 
-## Technologies
+✨ Features
 
-- React 19
-- Vite
-- Framer Motion
-- CSS3
+* Responsive design for desktop and mobile devices
+* Modern corporate landing page
+* Interactive navigation and UI components
+* Structured presentation of company services and information
+* Custom styling and visual elements
+* Production deployment
 
-## Development
+🛠️ Tech Stack
 
-```bash
-npm install
-npm run dev
-```
+* Frontend: React, JavaScript, HTML, CSS
+* Build Tool: Vite
+* Deployment: GitHub Pages / Netlify
+* Version Control: Git & GitHub
 
-## Build
+📸 Preview
 
-```bash
-npm run build
-```
+Add screenshots of the website here.
+
+![MediLinePartners Website Preview](./preview.png)
+
+🎥 Demo
+
+A short GIF showing the website navigation and interactions can be added here.
+
+![Website Demo](./demo.gif)
+
+🌐 Live Website
+
+View Live Website⁠￼
+
+👨‍💻 My Role
+
+* Designed and developed the website as a freelance project
+* Implemented the frontend using React and JavaScript
+* Built responsive layouts for different screen sizes
+* Created reusable UI components
+* Managed source control and deployment
+* Improved the overall presentation and usability of the company’s online presence
+
+📌 Project Type
+
+Freelance Web Development
+
+This repository showcases a real-world website developed for an external client.
